@@ -14,3 +14,7 @@ set number
 "Vimux keybindings
 map rp :VimuxPromptCommand
 map ri :VimuxInspectRunner
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
