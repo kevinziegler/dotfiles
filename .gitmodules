@@ -4,3 +4,6 @@
 [submodule "vim/bundle/vimux"]
 	path = vim/bundle/vimux
 	url = git://github.com/benmills/vimux.git
+[submodule "vim/bundle/statline"]
+	path = vim/bundle/statline
+	url = git://github.com/millermedeiros/vim-statline.git
