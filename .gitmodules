@@ -10,3 +10,6 @@
 [submodule "vim/bundle/xml-plugin"]
 	path = vim/bundle/xml-plugin
 	url = https://github.com/sukima/xmledit.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
