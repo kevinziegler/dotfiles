@@ -3,6 +3,9 @@
 " Out with the old, in with the new
 set nocompatible
 
+" Lefty-friendly leader
+nmap \ <C-I>
+
 " Spiceworks style guidlines
 set tabstop=2
 set shiftwidth=2
@@ -69,6 +72,8 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-rvm'
 
 """ Make it look good
 set t_Co=256
@@ -91,9 +96,15 @@ nmap <silent> <leader>d :colorscheme Tomorrow-Night<CR>:set background=dark<CR>
 nmap <silent> <leader>pp :CtrlP<CR>
 nmap <silent> <leader>pt :CtrlPTag<CR>
 
+" Quickly run current buffer as a test.
+nmap <silent> <leader>rtu :Rake test:unit TEST=%<CR>
+nmap <silent> <leader>rtf :Rake test:fuctional TEST=%<CR>
+nmap <silent> <leader>rti :Rake test:integration TEST=%<CR>
+
 " Miscellaneous other shortcuts
 nmap <silent> <leader>t :TagbarToggle<CR>
 nmap <silent> <leader>e :NERDTreeToggle<CR>
+nmap <silent> <leader>g :GundoToggle<CR>
 
 " Easier navigation of splits
 nnoremap <C-h> <C-w>h
