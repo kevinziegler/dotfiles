@@ -3,8 +3,7 @@
 " Out with the old, in with the new
 set nocompatible
 
-" Lefty-friendly leader
-nmap \ <C-I>
+set shell=/bin/bash
 
 " Spiceworks style guidlines
 set tabstop=2
@@ -74,6 +73,10 @@ Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-rvm'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'terryma/vim-smooth-scroll'
+Bundle 'rking/ag.vim'
+Bundle 'airblade/vim-gitgutter'
 
 """ Make it look good
 set t_Co=256
@@ -86,6 +89,8 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 set guifont=Monaco\ for\ Powerline:h12
+set guioptions -=r
+set guioptions -=L
 
 """ Leader mapped hotkeys for a great good
 " Quickly toggle to a light color scheme
@@ -97,9 +102,9 @@ nmap <silent> <leader>pp :CtrlP<CR>
 nmap <silent> <leader>pt :CtrlPTag<CR>
 
 " Quickly run current buffer as a test.
-nmap <silent> <leader>rtu :Rake test:unit TEST=%<CR>
-nmap <silent> <leader>rtf :Rake test:fuctional TEST=%<CR>
-nmap <silent> <leader>rti :Rake test:integration TEST=%<CR>
+nmap <silent> <leader>rtu :w<CR> :Rake test:unit TEST=%<CR>
+nmap <silent> <leader>rtf :w<CR> :Rake test:functionals TEST=%<CR>
+nmap <silent> <leader>rti :w<CR> :Rake test:integration TEST=%<CR>
 
 " Miscellaneous other shortcuts
 nmap <silent> <leader>t :TagbarToggle<CR>
@@ -116,9 +121,20 @@ nnoremap <C-l> <C-w>l
 nnoremap j gj
 nnoremap k gk
 
+" Smooth scroll plugins 
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
 """ Ignorance is bliss
 set wildignore+=*.swp,*.o,*.zip
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\.git$\|\.hg$\|\.svn$\',
   \ 'file': '\v\.(db|o)$'
   \ }
+
+" lefty-friendly leader
+" This has to be at the bottom for some strange reason
+let mapleader = "\<tab>"
+nmap <leader> \
