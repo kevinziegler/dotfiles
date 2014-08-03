@@ -3,6 +3,18 @@
 " Out with the old, in with the new
 set nocompatible
 
+" Let us figure out what platform we're on.  Assume windows, hope for
+" something better.  Options are:
+"   * Windows
+"   * Linux
+"   * Darwin
+let s:uname="Windows"
+if has("unix")
+  let s:uname=system("echo -n \"$(uname -s)\"")
+endif
+
+" Set the shell to bash (instead of zsh) to get around some weird plugin
+" behaviors
 set shell=/bin/bash
 
 " Spiceworks style guidlines
@@ -49,8 +61,13 @@ set ttymouse=xterm2
 au VimResized * exe "normal! \<c-w>="
 
 " MOAR POWER(line)
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-set laststatus=2
+if s:uname == "Darwin"
+  source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+  set laststatus=2
+elseif s:uname == "Linux" 
+  source /usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim
+  set laststatus=2
+endif
 
 " Plugins! MOAR POWER!!!!!
 set rtp+=~/.vim/bundle/vundle
@@ -88,7 +105,12 @@ let g:solarized_termcolrs=256
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
-set guifont=Monaco\ for\ Powerline:h12
+if s:uname == "Darwin"
+  set guifont=Monaco\ for\ Powerline:h12
+elseif s:uname == "Linux"
+  set guifont=Pragmata\ Pro:h12
+end
+
 set guioptions -=r
 set guioptions -=L
 
