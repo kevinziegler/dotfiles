@@ -3,18 +3,6 @@
 " Out with the old, in with the new
 set nocompatible
 
-" Let us figure out what platform we're on.  Assume windows, hope for
-" something better.  Options are:
-"   * Windows
-"   * Linux
-"   * Darwin
-let s:uname="Windows"
-if has("unix")
-  let s:uname=system("echo -n \"$(uname -s)\"")
-endif
-
-" Set the shell to bash (instead of zsh) to get around some weird plugin
-" behaviors
 set shell=/bin/bash
 
 " Spiceworks style guidlines
@@ -61,13 +49,8 @@ set ttymouse=xterm2
 au VimResized * exe "normal! \<c-w>="
 
 " MOAR POWER(line)
-if s:uname == "Darwin"
-  source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-  set laststatus=2
-elseif s:uname == "Linux" 
-  source /usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim
-  set laststatus=2
-endif
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+set laststatus=2
 
 " Plugins! MOAR POWER!!!!!
 set rtp+=~/.vim/bundle/vundle
@@ -94,30 +77,31 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'terryma/vim-smooth-scroll'
 Bundle 'rking/ag.vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'Raimondi/delimitMate'
+Bundle 'Xuyuanp/nerdtree-git-plugin'
+Bundle 'pangloss/vim-javascript'
+Bundle 'briancollins/vim-jst'
+Bundle 'jistr/vim-nerdtree-tabs'
+"Bundle 'Townk/vim-autoclose'
 
 """ Make it look good
 set t_Co=256
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Bright
 
 let g:solarized_termcolrs=256
 
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
-if s:uname == "Darwin"
-  set guifont=Monaco\ for\ Powerline:h12
-elseif s:uname == "Linux"
-  set guifont=Pragmata\ Pro:h12
-end
-
-set guioptions -=r
-set guioptions -=L
+set guifont=Monaco\ for\ Powerline:h10
+set guioptions-=r
+set guioptions-=L
 
 """ Leader mapped hotkeys for a great good
 " Quickly toggle to a light color scheme
 nmap <silent> <leader>l :colorscheme Tomorrow<CR>:set background=light<CR>
-nmap <silent> <leader>d :colorscheme Tomorrow-Night<CR>:set background=dark<CR>
+nmap <silent> <leader>d :colorscheme Tomorrow-Night-Bright<CR>:set background=dark<CR>
 
 " Favorite CtrlP modes, at easy access
 nmap <silent> <leader>pp :CtrlP<CR>
@@ -130,8 +114,10 @@ nmap <silent> <leader>rti :w<CR> :Rake test:integration TEST=%<CR>
 
 " Miscellaneous other shortcuts
 nmap <silent> <leader>t :TagbarToggle<CR>
-nmap <silent> <leader>e :NERDTreeToggle<CR>
+nmap <silent> <leader>e :NERDTreeTabsToggle<CR>
 nmap <silent> <leader>g :GundoToggle<CR>
+
+let g:nerdtree_tabs_open_on_gui_startup=0
 
 " Easier navigation of splits
 nnoremap <C-h> <C-w>h
