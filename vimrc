@@ -82,14 +82,29 @@ Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'pangloss/vim-javascript'
 Bundle 'briancollins/vim-jst'
 Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'tmhedberg/matchit'
+Bundle 'gilsondev/searchtasks.vim'
 "Bundle 'Townk/vim-autoclose'
+Bundle 'tpope/vim-dispatch'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'stephenmckinney/vim-solarized-powerline'
+Bundle 'tpope/vim-surround'
 
 """ Make it look good
 set t_Co=256
 set background=dark
-colorscheme Tomorrow-Night-Bright
+"colorscheme Tomorrow-Night-Bright
+colorscheme solarized
 
-let g:solarized_termcolrs=256
+let g:solarized_termcolors=256
+let g:Powerline_theme='short'
+let g:Powerline_colorscheme='solarized256_dark'
+
+highlight clear SignColumn
+"highlight GitGutterAdd ctermfg=green
+"highlight GitGutterChange ctermfg=yellow
+"highlight GitGutterDelete ctermfg=red
+"highlight GitGutterChangeDelete ctermfg=yellow
 
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
@@ -100,8 +115,10 @@ set guioptions-=L
 
 """ Leader mapped hotkeys for a great good
 " Quickly toggle to a light color scheme
-nmap <silent> <leader>l :colorscheme Tomorrow<CR>:set background=light<CR>
-nmap <silent> <leader>d :colorscheme Tomorrow-Night-Bright<CR>:set background=dark<CR>
+"nmap <silent> <leader>lt :colorscheme Tomorrow<CR>:set background=light<CR>
+"nmap <silent> <leader>dt:colorscheme Tomorrow-Night-Bright<CR>:set background=dark<CR>
+nmap <silent> <leader>lt :set background=light<CR>
+nmap <silent> <leader>dt :set background=dark<CR>
 
 " Favorite CtrlP modes, at easy access
 nmap <silent> <leader>pp :CtrlP<CR>
@@ -116,6 +133,9 @@ nmap <silent> <leader>rti :w<CR> :Rake test:integration TEST=%<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
 nmap <silent> <leader>e :NERDTreeTabsToggle<CR>
 nmap <silent> <leader>g :GundoToggle<CR>
+
+" Format buffer contents as JSON data.
+nmap <silent> <leader>jf :%!python -m json.tool<CR>
 
 let g:nerdtree_tabs_open_on_gui_startup=0
 
@@ -141,6 +161,9 @@ let g:ctrlp_custom_ignore = {
   \ 'dir': '\.git$\|\.hg$\|\.svn$\',
   \ 'file': '\v\.(db|o)$'
   \ }
+
+""" Highlight EJS files as HTML
+au BufNewFile,BufRead *.ejs set filetype=html
 
 " lefty-friendly leader
 " This has to be at the bottom for some strange reason
