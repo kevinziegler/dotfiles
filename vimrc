@@ -147,6 +147,9 @@ nmap <silent> <leader>g :GundoToggle<CR>
 " Format buffer contents as JSON data.
 nmap <silent> <leader>jf :%!python -m json.tool<CR>
 
+" Toggle relative line numbers
+nmap <silent> <leader>rn :exec &nu==&rnu? "se nornu!" : "se rnu!"<CR>
+
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " Easier navigation of splits
