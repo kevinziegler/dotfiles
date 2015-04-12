@@ -48,8 +48,7 @@ set ttymouse=xterm2
 " Resize splits as vim's window is resized
 au VimResized * exe "normal! \<c-w>="
 
-" MOAR POWER(line)
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+" Enable status bar
 set laststatus=2
 
 " Plugins! MOAR POWER!!!!!
@@ -89,6 +88,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'stephenmckinney/vim-solarized-powerline'
 Plugin 'tpope/vim-surround'
+Plugin 'bling/vim-airline'
 
 """ Make it look good
 set t_Co=256
@@ -112,6 +112,16 @@ let g:indent_guides_guide_size=1
 set guifont=Monaco\ for\ Powerline:h10
 set guioptions-=r
 set guioptions-=L
+
+" powerline symbols for vim-airline
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols = {}
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 """ Leader mapped hotkeys for a great good
 " Quickly toggle to a light color scheme
@@ -149,7 +159,7 @@ nnoremap <C-l> <C-w>l
 nnoremap j gj
 nnoremap k gk
 
-" Smooth scroll plugins 
+" Smooth scroll plugins
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
