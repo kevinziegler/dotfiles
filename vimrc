@@ -178,6 +178,13 @@ let g:ctrlp_custom_ignore = {
 """ Highlight EJS files as HTML
 au BufNewFile,BufRead *.ejs set filetype=html
 
+function! AirlineThemePatch(palette)
+  let a:palette.normal_modified.airline_c =  ['#cb4b16', '#eee8d5', 166, 254, '']
+  let a:palette.insert_modified.airline_c =  ['#cb4b16', '#eee8d5', 166, 254, '']
+  let a:palette.visual_modified.airline_c =  ['#cb4b16', '#eee8d5', 166, 254, '']
+endfunction
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+
 " lefty-friendly leader
 " This has to be at the bottom for some strange reason
 let mapleader = "\<tab>"
