@@ -89,6 +89,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'stephenmckinney/vim-solarized-powerline'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 
 """ Make it look good
 set t_Co=256
