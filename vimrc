@@ -91,6 +91,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'godlygeek/tabular'
+Plugin 'markcornick/vim-vagrant'
+Plugin 'mustache/vim-mustache-handlebars'
 
 """ Make it look good
 set t_Co=256
