@@ -91,6 +91,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 
 """ Make it look good
 set t_Co=256
@@ -169,6 +171,13 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+" Use starscope instead of ctags, since, you know, Ruby
+"let g:easytags_cmd = '/usr/bin/starscope'
+"let g:easytags_opts = ['-e=ctags']
+
+" Use a local tag file instead of the global one
+let g:easytags_dynamic_files=2
 
 """ Ignorance is bliss
 set wildignore+=*.swp,*.o,*.zip
