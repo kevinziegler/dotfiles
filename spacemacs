@@ -28,15 +28,20 @@ values."
      emacs-lisp
      git
      ;; markdown
-      org
+     org
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      ;; spell-checking
-     ;; syntax-checking
+     syntax-checking
      version-control
      osx
      ruby-on-rails
+     robe
+     evil-quickscope
+     vagrant
+     dash
+     html
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -91,13 +96,13 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Hack"
+   dotspacemacs-default-font '("Source Code Pro"
                                :size 10
                                :weight normal
                                :width normal
-                               :powerline-scale 1.2)
+                               :powerline-scale 1.6)
    ;; The leader key
-   dotspacemacs-leader-key "\\"
+   dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
    dotspacemacs-emacs-leader-key "M-m"
@@ -169,7 +174,7 @@ values."
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling nil
+   dotspacemacs-smooth-scrolling t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -188,7 +193,8 @@ values."
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
    dotspacemacs-default-package-repository nil
-   ))
+   dotspacemacs-auto-resume-layouts t
+    ))
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
@@ -210,6 +216,7 @@ layers configuration. You are free to put any user code."
   (global-set-key (kbd "C-h") 'windmove-left)
   (global-set-key (kbd "C-l") 'windmove-right)
   (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen)
+  (global-set-key (kbd "<S-tab>") 'sp-up-sexp)
 
   (add-to-list 'default-frame-alist '(height . 50))
   (add-to-list 'default-frame-alist '(width . 180))
