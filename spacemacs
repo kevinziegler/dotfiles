@@ -42,6 +42,10 @@ values."
      vagrant
      dash
      html
+     themes-megapack
+     evil-cleverparens
+     evil-snipe
+     puppet
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -85,8 +89,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-dark
-                         solarized-light
+   dotspacemacs-themes '(sanityinc-solarized-dark
+                         sanityinc-solarized-light
                          spacemacs-dark
                          spacemacs-light
                          leuven
@@ -206,7 +210,7 @@ user code."
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (setq powerline-default-separator 'arrow-fade)
+  ;;(setq powerline-default-separator 'contour)
   (setq paradox-github-token 'a9731adc6eac4aa470ec63e99019c1b9151e589c)
   (global-linum-mode)
   (linum-relative-toggle)
@@ -221,6 +225,8 @@ layers configuration. You are free to put any user code."
   (add-to-list 'default-frame-alist '(height . 50))
   (add-to-list 'default-frame-alist '(width . 180))
   (setq magit-git-executable "/usr/local/bin/git")
+  (setq web-mode-markup-indent-offset 2)
+  (setq neo-theme 'nerd)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
