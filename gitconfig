@@ -4,7 +4,7 @@
 [core]
 	excludesfile = /Users/kevinz/.gitignore_global
 	editor = /usr/bin/vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -16,6 +16,8 @@
 	st = status
 	co = checkout
 	ci = commit
+    patch = !git --no-pager diff --no-color
+    fp = push --force-with-lease
 [http]
 	sslVerify = false
 [merge]
