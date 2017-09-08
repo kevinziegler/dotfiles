@@ -175,7 +175,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 10
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.9)
@@ -313,7 +313,7 @@ layers configuration. You are free to put any user code."
   (setq ns-use-srgb-colorspace nil)
   (setq org-directory "~/Dropbox (Personal)/org")
   (setq paradox-github-token 'a9731adc6eac4aa470ec63e99019c1b9151e589c)
-  (setq powerline-default-separator 'arrow)
+  (setq powerline-default-separator 'slant)
   (setq web-mode-markup-indent-offset 2)
   (setq typescript-indent-level 2)
 
