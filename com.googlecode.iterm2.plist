@@ -689,7 +689,7 @@
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>1534 707 735 382 0 0 3440 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>1427 552 700 622 0 0 3440 1417 </string>
+	<string>1370 609 700 622 0 0 3440 1417 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>1131 779 606 469 0 0 3440 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -697,9 +697,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>331 833 592 584 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 54 1718 1363 0 0 3440 1417 </string>
+	<string>1 54 1718 1363 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2128 498 1200 610 0 0 3440 1417 </string>
+	<string>74 124 1200 610 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>9 83 1200 610 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -3200,7 +3200,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-08-15T21:15:27Z</date>
+	<date>2017-09-05T19:13:23Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3210,7 +3210,7 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
