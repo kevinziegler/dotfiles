@@ -28,15 +28,12 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     helm
      html
      sql
-     vimscript
      javascript
-     ;; auto-completion
-     better-defaults
      emacs-lisp
      git
-     ;; markdown
      org
      shell
      (shell :variables
@@ -48,9 +45,7 @@ values."
      syntax-checking
      version-control
      osx
-     ruby
      (ruby :variables
-           ;; ruby-enable-enh-ruby-mode t
            ruby-version-manager 'chruby
            ruby-test-runner 'rspec)
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
@@ -69,6 +64,7 @@ values."
      erlang
      auto-completion
      typescript
+     imenu-list
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
