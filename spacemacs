@@ -330,6 +330,10 @@ layers configuration. You are free to put any user code."
   (spacemacs/set-leader-keys "ofd" 'vimish-fold-delete)
   (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen)
   (global-set-key (kbd "<S-tab>") 'sp-up-sexp)
+
+  (evil-ex-define-cmd "W" 'evil-write)
+  (evil-ex-define-cmd "Wq" 'evil-save-and-close)
+  (evil-ex-define-cmd "WQ" 'evil-save-and-close)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
