@@ -304,6 +304,7 @@ user code."
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+  (require 'helm-bookmark)
   (setq magit-git-executable "/usr/local/bin/git")
   (setq neo-theme 'nerd)
   (setq ns-use-srgb-colorspace nil)
@@ -319,7 +320,6 @@ layers configuration. You are free to put any user code."
 
   (global-linum-mode)
   (linum-relative-toggle)
-
 
   (add-to-list 'default-frame-alist '(height . 50))
   (add-to-list 'default-frame-alist '(width . 180))
