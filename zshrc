@@ -29,7 +29,6 @@ export UPDATE_ZSH_DAYS=26
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
 
-#source $ZSH/oh-my-zsh.sh
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 source /usr/local/etc/profile.d/z.sh
