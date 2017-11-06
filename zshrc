@@ -47,4 +47,21 @@ eval "$(nodenv init -)"
 bindkey -v
 
 # Enable History substring search, even with VI mode
-bindkey '^R' history-incremental-search-backward
+# bindkey '^R' history-incremental-search-backward
+function history-fzf() {
+    local tac
+
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+
+    BUFFER=$(history -n 1 | eval $tac | fzf --query "$LBUFFER" --border --height=40% --reverse)
+    CURSOR=$#BUFFER
+
+    zle reset-prompt
+}
+
+zle -N history-fzf
+bindkey '^r' history-fzf
