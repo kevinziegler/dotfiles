@@ -286,7 +286,7 @@ values."
    dotspacemacs-auto-resume-layouts t
 
    ;; dotspacemacs-line-numbers 'relative
-   dotspacemacs-line-numbers '(:relative nil
+   dotspacemacs-line-numbers '(:relative t
                                 :disabled-for-modes dired-mode
                                                     doc-view-mode
                                                     markdown-mode
