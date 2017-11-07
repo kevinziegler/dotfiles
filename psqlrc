@@ -3,16 +3,19 @@
 \pset null '¤'
 
 -- \set PROMPT1 '%[%033[1m%][%/] # '
-\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
+\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# ❯❯❯ '
 -- SELECT * FROM<enter>. %R shows what type of input it expects.
 \set PROMPT2 '... > '
 
 \timing
 
 \x auto
+\set ENCODING utf-8
 \set VERBOSITY verbose
 \set HISTFILE ~/.psql_history- :DBNAME
 \set HISTCONTROL ignoredups
 \set COMP_KEYWORD_CASE upper
 
+\pset linestyle unicode
+\pset border2
 \unset QUIET
