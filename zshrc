@@ -21,6 +21,7 @@ antigen bundle docker
 antigen bundle jira
 antigen bundle vi-mode
 antigen bundle yarn
+antigen bundle zlsun/solarized-man
 
 antigen theme sindresorhus/pure
 
