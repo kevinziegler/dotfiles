@@ -63,6 +63,8 @@ $PATH
 
 export PAGER=vimpager
 export EDITOR=nvim
+export CLICOLOR=1
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 # Load nodenv by default
 eval "$(nodenv init -)"
