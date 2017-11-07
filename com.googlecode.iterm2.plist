@@ -685,7 +685,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>482 87 445 77 0 0 1280 777 </string>
+	<string>1729 87 445 77 0 0 3440 1440 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>1901 930 606 456 0 0 3440 1417 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
@@ -695,15 +695,15 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>1131 779 606 469 0 0 3440 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>0 383 918 394 0 0 1280 777 </string>
+	<string>129 734 1018 447 0 0 3440 1417 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>331 833 592 584 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 285 754 492 0 0 1280 777 </string>
+	<string>9 47 1200 610 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>65 167 1200 610 0 0 1280 777 </string>
+	<string>47 121 1200 610 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1522 552 1200 610 0 0 3440 1417 </string>
+	<string>54 114 1200 610 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>516 168 1030 488 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -1311,7 +1311,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraCode-Retina 10</string>
+			<string>FiraCode-Regular 11</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2480,7 +2480,7 @@
 			</dict>
 			<key>Bound Hosts</key>
 			<array>
-				<string>kziegler@d360-dev-nightly</string>
+				<string>kziegler@d360-nna-prd-*</string>
 				<string>deployer@</string>
 				<string>root@</string>
 				<string>kziegler@coef-prd-*</string>
@@ -2922,7 +2922,7 @@
 				<key>action</key>
 				<string>editor</string>
 				<key>editor</key>
-				<string>org.vim.MacVim</string>
+				<string>com.microsoft.VSCode</string>
 				<key>text</key>
 				<string></string>
 			</dict>
@@ -3191,6 +3191,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/kziegler/.dotfiles</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -3210,7 +3212,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-10-12T16:21:58Z</date>
+	<date>2017-11-03T17:56:14Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3234,7 +3236,7 @@
 	<key>SwitchWindowModifier</key>
 	<integer>6</integer>
 	<key>TabStyle</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ThreeFingerEmulates</key>
@@ -6806,7 +6808,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.4.beta.1</string>
+	<string>3.1.5.beta.1</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
