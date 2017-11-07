@@ -328,6 +328,7 @@ layers configuration. You are free to put any user code."
   (setq powerline-default-separator 'slant)
   (setq web-mode-markup-indent-offset 2)
   (setq typescript-indent-level 2)
+  (setq org-hide-emphasis-markers t)
 
   ;; Javascript indentation settings (2 spaces)
   ;; (setq-default js2-basic-offset 4)
