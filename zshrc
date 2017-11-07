@@ -105,3 +105,12 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 
+setopt INC_APPEND_HISTORY
+
+HISTSIZE=10000
+if (( ! EUID )); then
+    HISTFILE=~/.zsh_history_root
+else
+    HISTFILE=~/.zsh_history
+fi
+SAVEHIST=10000
