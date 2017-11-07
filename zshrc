@@ -1,11 +1,25 @@
 SRC_ANTIGEN=/usr/local/share/antigen/antigen.zsh
+SRC_Z_CMD=/usr/local/etc/profile.d/z.sh
 
+# Load Iterm2 Shell integration
+if [[ -s $HOME/.iterm2_shell_integration.zsh ]]; then
+    source $HOME/.iterm2_shell_integration.zsh
+fi
+
+# Load Antigen
 if [[ -s $SRC_ANTIGEN ]]; then
     source $SRC_ANTIGEN
 else
     echo "Couldn't load Antigen!  You're gonna have a bad time :-("
     echo "Run `brew install antigen` to get things working"
 fi
+
+if [[ -s $SRC_Z_CMD ]]; then
+    source /usr/local/etc/profile.d/z.sh
+else
+    echo "Couldn't load z!"
+fi
+
 
 antigen bundle mafredri/zsh-async
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -35,21 +49,8 @@ alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Ch
                         --user-data-dir=`mktemp -d` \
                         --no-first-run"
 
-# Load Iterm2 Shell integration
-if [[ -s $HOME/.iterm2_shell_integration.zsh ]]; then
-    source $HOME/.iterm2_shell_integration.zsh
-fi
-
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-export UPDATE_ZSH_DAYS=26
-
-# Uncomment following line if you want to disable command autocorrection
-DISABLE_CORRECTION="true"
-
-source /usr/local/etc/profile.d/z.sh
 
 export PATH=/usr/local/bin:\
 /usr/local/sbin:/usr/sbin:\
@@ -85,8 +86,6 @@ function history-fzf() {
     zle reset-prompt
 }
 
-zle -N history-fzf
-
 function zle-keymap-select zle-line-init zle-line-finish {
     case $KEYMAP in
         vicmd)      print -n -- "\E]50;CursorShape=0\C-G";; # block cursor
@@ -96,6 +95,8 @@ function zle-keymap-select zle-line-init zle-line-finish {
     zle reset-prompt
     zle -R
 }
+
+zle -N history-fzf
 
 bindkey '^r' history-fzf
 bindkey '^[[A' history-substring-search-up
