@@ -20,7 +20,6 @@ else
     echo "Couldn't load z!"
 fi
 
-
 antigen bundle mafredri/zsh-async
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
