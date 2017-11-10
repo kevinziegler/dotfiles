@@ -35,6 +35,7 @@ antigen bundle jira
 antigen bundle vi-mode
 antigen bundle yarn
 antigen bundle zlsun/solarized-man
+antigen bundle $HOME/.dotfiles/pg-fzf
 
 antigen theme sindresorhus/pure
 
@@ -43,6 +44,7 @@ antigen apply
 ### Aliases
 alias be="bundle exec"
 alias george="bundle exec"
+alias pg="pg-fzf"
 alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
                         --disable-web-security \
                         --user-data-dir=`mktemp -d` \
