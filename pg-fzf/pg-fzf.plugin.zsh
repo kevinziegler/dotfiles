@@ -6,7 +6,7 @@ pg-fzf() {
         | fzf --border --select-1 --query=$1 --prompt="Select a database: "
     );
 
-    [[ -v $database ]] && echo "Couldn't find a matching database" && exit
+    if (( !$+database )) && echo "Couldn't find a matching database" && return 1
 
     local host=$( \
         awk -F ':' \
@@ -16,7 +16,7 @@ pg-fzf() {
         | fzf --select-1 --border --prompt="Select host: "
     );
 
-    [[ -v $host ]] && echo "Couldn't find a matching host" && exit
+    if (( !$+host )) && echo "Couldn't find a matching host" && return 1
 
     local user=$( \
         awk -F ':' \
@@ -27,7 +27,7 @@ pg-fzf() {
         | fzf --select-1 --border --prompt="Select user: "
     );
 
-    [[ -v $user ]] && echo "Couldn't find a matching user" && exit
+    if (( !$+user )) && echo "Couldn't find a matching user" && return 1
 
     psql -h $host $database $user
 }
