@@ -1,4 +1,4 @@
-pg-fzf() {
+pg-fzf-pgpass() {
     local PG_PASS=$HOME/.pgpass;
 
     local database=$( \
@@ -30,4 +30,31 @@ pg-fzf() {
     if (( !$+user )) && echo "Couldn't find a matching user" && return 1
 
     psql -h $host $database $user
+}
+
+pg-fzf-local() {
+    local database=$( \
+        psql --list -A -t \
+        | grep "|" \
+        | cut -d"|" -f1 \
+        | fzf --border --select-1 --query=$1 --prompt="Select a database: "
+    );
+
+    if (( !$+database )) && echo "Couldn't find a matching database" && return 1
+
+    psql $database
+}
+
+pg-fzf() {
+    case $1 in
+        "local"|"loc"|"l")
+            echo "loading local"
+            pg-fzf-local $2
+            ;;
+        "remote"|"rem"|"r")
+            echo "loading remote"
+            pg-fzf-pgpass $2
+            ;;
+        *)
+    esac
 }
