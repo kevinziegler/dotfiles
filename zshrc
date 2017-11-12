@@ -98,14 +98,13 @@ function zle-keymap-select zle-line-init zle-line-finish {
 }
 
 zle -N history-fzf
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
 
 bindkey '^r' history-fzf
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-zle -N zle-line-init
-zle -N zle-line-finish
-zle -N zle-keymap-select
 
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
