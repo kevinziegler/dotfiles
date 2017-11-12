@@ -1,5 +1,4 @@
 SRC_ANTIGEN=/usr/local/share/antigen/antigen.zsh
-SRC_Z_CMD=/usr/local/etc/profile.d/z.sh
 
 # Load Iterm2 Shell integration
 if [[ -s $HOME/.iterm2_shell_integration.zsh ]]; then
@@ -12,12 +11,6 @@ if [[ -s $SRC_ANTIGEN ]]; then
 else
     echo "Couldn't load Antigen!  You're gonna have a bad time :-("
     echo "Run `brew install antigen` to get things working"
-fi
-
-if [[ -s $SRC_Z_CMD ]]; then
-    source /usr/local/etc/profile.d/z.sh
-else
-    echo "Couldn't load z!"
 fi
 
 antigen bundle mafredri/zsh-async
@@ -35,6 +28,7 @@ antigen bundle jira
 antigen bundle vi-mode
 antigen bundle yarn
 antigen bundle zlsun/solarized-man
+antigen bundle eendroroy/zed-zsh
 antigen bundle $HOME/.dotfiles/pg-fzf
 
 antigen theme sindresorhus/pure
