@@ -35,18 +35,6 @@ antigen theme sindresorhus/pure
 
 antigen apply
 
-### Aliases
-alias be="bundle exec"
-alias george="bundle exec"
-alias pg="pg-fzf"
-alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
-                        --disable-web-security \
-                        --user-data-dir=`mktemp -d` \
-                        --no-first-run"
-
-# Set to this to use case-sensitive completion
-CASE_SENSITIVE="true"
-
 export PATH=/usr/local/bin:\
 /usr/local/sbin:/usr/sbin:\
 /usr/bin:/sbin:\
@@ -57,15 +45,10 @@ $HOME/.bin:\
 /$HOME/Library/Python/3.6/bin:\
 $PATH
 
-export PAGER=vimpager
-export EDITOR=nvim
-export CLICOLOR=1
-export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-
 # Load nodenv by default
 eval "$(nodenv init -)"
 
-# Enable History substring search, even with VI mode
+### Enable History substring search, even with VI mode
 function history-fzf() {
     local tac
 
@@ -81,6 +64,7 @@ function history-fzf() {
     zle reset-prompt
 }
 
+### Change cursor based on vi mode
 function zle-keymap-select zle-line-init zle-line-finish {
     case $KEYMAP in
         vicmd)      print -n -- "\E]50;CursorShape=0\C-G";; # block cursor
@@ -96,10 +80,12 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 
+### Custom key bindings
 bindkey '^r' history-fzf
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+### History Settings
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_DUPS
@@ -117,3 +103,18 @@ else
     HISTFILE=~/.zsh_history
 fi
 SAVEHIST=10000
+
+### Environment configuration
+export PAGER=vimpager
+export EDITOR=nvim
+export CLICOLOR=1
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+### Aliases
+alias be="bundle exec"
+alias george="bundle exec"
+alias pg="pg-fzf"
+alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+                        --disable-web-security \
+                        --user-data-dir=`mktemp -d` \
+                        --no-first-run"
