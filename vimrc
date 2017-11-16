@@ -54,43 +54,29 @@ set laststatus=2
 
 
 call plug#begin('~/.vim/bundle')
-" Vundle manages Vundle?!!? So meta!
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-fugitive'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/syntastic'
-Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-endwise'
 Plug 'vim-ruby/vim-ruby'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
-Plug 'vim-scripts/taglist.vim'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'rking/ag.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'pangloss/vim-javascript'
 Plug 'briancollins/vim-jst'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-dispatch'
-Plug 'altercation/vim-colors-solarized'
-Plug 'stephenmckinney/vim-solarized-powerline'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'stephenmckinney/vim-solarized-powerline'
 Plug 'tpope/vim-surround'
 Plug 'bling/vim-airline'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'godlygeek/tabular'
-Plug 'markcornick/vim-vagrant'
 Plug 'docunext/closetag.vim', { 'for': ['html', 'hbs'] }
-Plug 'aserebryakov/filestyle'
 Plug 'kopischke/vim-fetch'
-Plug 'unblevable/quick-scope'
-Plug 'ryanoasis/vim-devicons'
-Plug 'keith/investigate.vim'
 call plug#end()
 
 
@@ -111,11 +97,11 @@ let g:ctrlp_working_path_mode ='ra'
 
 """ Make it look good
 set t_Co=256
-set background=dark
-"colorscheme Tomorrow-Night-Bright
-colorscheme solarized
+" set background=dark
+" colorscheme default
+" colorscheme Tomorrow-Night-Bright
+" colorscheme solarized
 
-let g:solarized_termcolors=256
 let g:Powerline_theme='short'
 let g:Powerline_colorscheme='solarized256_dark'
 
@@ -125,12 +111,6 @@ highlight clear SignColumn
 "highlight GitGutterDelete ctermfg=red
 "highlight GitGutterChangeDelete ctermfg=yellow
 
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-
-"set guifont=Monaco\ For\ Powerline\ Plus\ Nerd\ File\ Types:h10
-set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:h10
-"set guifont=Hack:h10
 set guioptions-=r
 set guioptions-=L
 
