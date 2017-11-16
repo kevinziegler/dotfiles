@@ -73,6 +73,8 @@ values."
    dotspacemacs-additional-packages
    '(
      editorconfig
+     all-the-icons
+     spaceline-all-the-icons
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -321,7 +323,7 @@ layers configuration. You are free to put any user code."
   (require 'helm-bookmark)
   (mac-auto-operator-composition-mode)
   (setq magit-git-executable "/usr/local/bin/git")
-  (setq neo-theme 'nerd)
+  (setq neo-theme 'icons)
   (setq ns-use-srgb-colorspace nil)
   (setq org-directory "~/Dropbox (Personal)/org")
   (setq paradox-github-token 'a9731adc6eac4aa470ec63e99019c1b9151e589c)
