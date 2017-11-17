@@ -352,6 +352,9 @@ layers configuration. You are free to put any user code."
   (evil-ex-define-cmd "W" 'evil-write)
   (evil-ex-define-cmd "Wq" 'evil-save-and-close)
   (evil-ex-define-cmd "WQ" 'evil-save-and-close)
+  (use-package spaceline-all-the-icons
+    :after spaceline
+    :config (spaceline-all-the-icons-theme))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
