@@ -1,7 +1,7 @@
 SRC_ANTIGEN=/usr/local/share/antigen/antigen.zsh
 
 # Load Iterm2 Shell integration
-if [[ -s $HOME/.iterm2_shell_integration.zsh ]]; then
+if [[ -s $HOME/.iterm2_shell_integration.zsh && $TERM_PROGRAM =~ iTerm ]]; then
     source $HOME/.iterm2_shell_integration.zsh
 fi
 
