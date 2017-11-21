@@ -20,3 +20,10 @@ vim +PlugInstall +qall
 
 # Setup spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+# Manual steps
+echo "TODO items for the human:"
+echo "\t Run `all-the-icons-install-fonts` in emacs"
+echo "\t Set CMD+/ command to trigger dash"
+echo "\t Set CMD+SPACE to trigger alfred"
+echo "\t Set shortcuts for divvy"
