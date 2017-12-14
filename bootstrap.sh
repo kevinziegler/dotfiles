@@ -4,6 +4,7 @@ ln -s $HOME/.dotfiles/spacemacs $HOME/.spacemacs
 ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
 ln -s $HOME/.dotfiles/gitconfig $HOME/.gitconfig
 ln -s $HOME/.dotfiles/gitignore_global $HOME/.gitignore_global
+ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
 
 # Install homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
