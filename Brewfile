@@ -108,7 +108,6 @@ brew "z"
 brew "zork"
 brew "zplug"
 brew "zsh"
-brew "codeclimate/formulae/codeclimate"
 brew "railwaycat/emacsmacport/emacs-mac", args: ["with-spacemacs-icon"]
 cask "1password"
 cask "alfred"
