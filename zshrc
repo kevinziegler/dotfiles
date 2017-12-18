@@ -128,3 +128,7 @@ alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Ch
                         --disable-web-security \
                         --user-data-dir=`mktemp -d` \
                         --no-first-run"
+
+if [ -f $HOME/.zsh.local ]; then
+  source $HOME/.zsh.local;
+fi
