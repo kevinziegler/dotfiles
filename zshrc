@@ -110,10 +110,20 @@ export EDITOR=nvim
 export CLICOLOR=1
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+function emacsclient-cli() {
+    local path_arg=".";
+
+    # Set the path if it's provided as an arg
+    if (( ${+1} )); then path_arg=$1; fi
+
+    emacsclient -n $path_arg;
+}
+
 ### Aliases
 alias be="bundle exec"
 alias george="bundle exec"
 alias pg="pg-fzf"
+alias ec="emacsclient-cli"
 alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
                         --disable-web-security \
                         --user-data-dir=`mktemp -d` \
