@@ -356,6 +356,17 @@ layers configuration. You are free to put any user code."
     (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
   (ad-activate 'ansi-term)
 
+  ;; Code folding
+  (add-hook 'ruby-mode-hook
+            (lambda () (hs-minor-mode)))
+
+  (eval-after-load "hideshow"
+    '(add-to-list 'hs-special-modes-alist
+                  `(ruby-mode
+                    ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
+                    ,(rx (or "}" "]" "end"))                       ; Block end
+                    ,(rx (or "#" "=begin"))                        ; Comment start
+                    ruby-forward-sexp nil)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
