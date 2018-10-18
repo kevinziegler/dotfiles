@@ -1,39 +1,41 @@
 SRC_ANTIGEN=/usr/local/share/antigen/antigen.zsh
 
-# Load Iterm2 Shell integration
-if [[ -s $HOME/.iterm2_shell_integration.zsh && $TERM_PROGRAM =~ iTerm ]]; then
-    source $HOME/.iterm2_shell_integration.zsh
+if [[ -o interactive ]]; then
+  # Load Iterm2 Shell integration
+  if [[ -s $HOME/.iterm2_shell_integration.zsh && $TERM_PROGRAM =~ iTerm ]]; then
+      source $HOME/.iterm2_shell_integration.zsh
+  fi
+
+  # Load Antigen
+  if [[ -s $SRC_ANTIGEN ]]; then
+      source $SRC_ANTIGEN
+  else
+      echo "Couldn't load Antigen!  You're gonna have a bad time :-("
+      echo "Run `brew install antigen` to get things working"
+  fi
+
+  antigen bundle mafredri/zsh-async
+  antigen bundle zdharma/fast-syntax-highlighting
+  antigen bundle zsh-users/zsh-autosuggestions
+  antigen bundle zsh-users/zsh-history-substring-search
+  antigen bundle brew
+  antigen bundle bundler
+  antigen bundle git
+  antigen bundle tig
+  antigen bundle gem
+  antigen bundle docker
+  antigen bundle jira
+  antigen bundle vi-mode
+  antigen bundle yarn
+  antigen bundle zlsun/solarized-man
+  antigen bundle eendroroy/zed-zsh
+  antigen bundle $HOME/.dotfiles/pg-fzf
+  # antigen bundle $HOME/bessie
+
+  antigen theme sindresorhus/pure
+
+  antigen apply
 fi
-
-# Load Antigen
-if [[ -s $SRC_ANTIGEN ]]; then
-    source $SRC_ANTIGEN
-else
-    echo "Couldn't load Antigen!  You're gonna have a bad time :-("
-    echo "Run `brew install antigen` to get things working"
-fi
-
-antigen bundle mafredri/zsh-async
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle brew
-antigen bundle bundler
-antigen bundle chruby
-antigen bundle git
-antigen bundle tig
-antigen bundle gem
-antigen bundle docker
-antigen bundle jira
-antigen bundle vi-mode
-antigen bundle yarn
-antigen bundle zlsun/solarized-man
-antigen bundle eendroroy/zed-zsh
-antigen bundle $HOME/.dotfiles/pg-fzf
-
-antigen theme sindresorhus/pure
-
-antigen apply
 
 export PATH=/usr/local/bin:\
 /usr/local/sbin:/usr/sbin:\
