@@ -58,6 +58,7 @@ This function should only modify configuration layer settings."
      php
      restclient
      (ruby :variables
+           ruby-enable-enh-ruby-mode t
            ruby-version-manager 'chruby
            ruby-test-runner 'rspec)
      ruby-on-rails
