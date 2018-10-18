@@ -2,9 +2,10 @@
 	name = Kevin Ziegler
 	#email = kevinz@spicework.com
 [core]
-	excludesfile = /Users/kevinz/.gitignore_global
+	excludesfile = ~/.dotfiles/gitignore_global
 	editor = /usr/bin/vim
-	pager = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
+[pager]
+	diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -16,9 +17,36 @@
 	st = status
 	co = checkout
 	ci = commit
-    patch = !git --no-pager diff --no-color
-    fp = push --force-with-lease
+  patch = !git --no-pager diff --no-color
+  fp = push --force-with-lease
 [http]
 	sslVerify = false
 [merge]
 	conflictstyle = diff3
+[include]
+  path=.gitconfig.local
+[github]
+	user = kevinziegler
+	oauth-token = e6004982f1f0f3f8496d659c0f36d0dde9002c7d
+
+[color]
+        ui = auto
+
+[color "branch"]
+        current = green bold
+
+[color "status"]
+        added = green
+        changed = yellow
+        untracked = cyan
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[magithub]
+	online = false
+[magithub "status"]
+	includeStatusHeader = false
+	includePullRequestsSection = false
+	includeIssuesSection = false
