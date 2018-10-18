@@ -214,3 +214,8 @@ let g:investigate_dash_for_ruby="r4"
 " This has to be at the bottom for some strange reason
 let mapleader = "\<tab>"
 nmap <leader> \
+
+" Set cursor shapes for iterm.  This overrides what comes in from ZSH
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
