@@ -169,6 +169,21 @@ function seek_file() {
     _hide_and_seek_swap_files $hidden_name $1 'seek'
 }
 
+function find_rspec() {
+    if [[ -z $(which fzf) ]]; then
+        echo "FZF not found.  Run 'brew install fzf' to fix this"
+        return
+    fi
+
+    local spec_list=$(find spec -name "*.rb" | fzf --multi)
+    if [[ ! -z $spec_list ]]; then
+        local command="bundle exec rspec $spec_list"
+        echo $command
+        print -s $command
+        bundle exec rspec $spec_list
+    fi
+}
+
 ### Aliases
 alias be="bundle exec"
 alias george="bundle exec"
@@ -178,6 +193,7 @@ alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Ch
                         --disable-web-security \
                         --user-data-dir=`mktemp -d` \
                         --no-first-run"
+alias frs="find_rspec"
 
 if [ -f $HOME/.zsh.local ]; then
   source $HOME/.zsh.local;
