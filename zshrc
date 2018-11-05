@@ -47,8 +47,9 @@ $HOME/.bin:\
 /$HOME/Library/Python/3.6/bin:\
 $PATH
 
-# Load nodenv by default
 eval "$(nodenv init -)"
+eval "$(pyenv init -)"
+eval "$(rbenv init -)"
 
 ### Enable History substring search, even with VI mode
 function history-fzf() {
