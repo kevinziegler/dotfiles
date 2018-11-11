@@ -1,4 +1,5 @@
-SRC_ANTIGEN=/usr/local/share/antigen/antigen.zsh
+ZSH_PLUGINS_SOURCE=$HOME/.dotfiles/zsh_plugins.txt
+ZSH_PLUGINS_BUNDLE=$HOME/.zsh_plugins.sh
 
 if [[ -o interactive ]]; then
   # Load Iterm2 Shell integration
@@ -9,8 +10,13 @@ if [[ -o interactive ]]; then
   autoload -Uz compinit
   compinit
 
-  source $HOME/.zsh_plugins.sh
-  # antibody bundle < ~/.zsh_plugins.txt
+  if [[ ! -a $ZSH_PLUGINS_BUNDLE ]]; then
+      echo "WARNING: Couldn't find antibody bundle.  Regenerating..."
+      antibody bundle < $ZSH_PLUGINS_SRC > $ZSH_PLUGINS_BUNDLE
+  fi
+
+
+  source $ZSH_PLUGINS_BUNDLE
 fi
 
 export PATH=/usr/local/bin:\
@@ -167,14 +173,12 @@ function find_rspec() {
 ### Aliases
 alias be="bundle exec"
 alias george="bundle exec"
-alias pg="pg-fzf"
 alias ec="emacsclient-cli"
 alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
                         --disable-web-security \
                         --user-data-dir=`mktemp -d` \
                         --no-first-run"
 alias frs="find_rspec"
-
 alias antibody-reload-bundle="antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh"
 
 if [ -f $HOME/.zsh.local ]; then
