@@ -6,35 +6,11 @@ if [[ -o interactive ]]; then
       source $HOME/.iterm2_shell_integration.zsh
   fi
 
-  # Load Antigen
-  if [[ -s $SRC_ANTIGEN ]]; then
-      source $SRC_ANTIGEN
-  else
-      echo "Couldn't load Antigen!  You're gonna have a bad time :-("
-      echo "Run `brew install antigen` to get things working"
-  fi
+  autoload -Uz compinit
+  compinit
 
-  antigen bundle mafredri/zsh-async
-  antigen bundle zdharma/fast-syntax-highlighting
-  antigen bundle zsh-users/zsh-autosuggestions
-  antigen bundle zsh-users/zsh-history-substring-search
-  antigen bundle brew
-  antigen bundle bundler
-  antigen bundle git
-  antigen bundle tig
-  antigen bundle gem
-  antigen bundle docker
-  antigen bundle jira
-  antigen bundle vi-mode
-  antigen bundle yarn
-  antigen bundle zlsun/solarized-man
-  antigen bundle eendroroy/zed-zsh
-  antigen bundle $HOME/.dotfiles/pg-fzf
-  # antigen bundle $HOME/bessie
-
-  antigen theme sindresorhus/pure
-
-  antigen apply
+  source $HOME/.zsh_plugins.sh
+  # antibody bundle < ~/.zsh_plugins.txt
 fi
 
 export PATH=/usr/local/bin:\
@@ -45,7 +21,10 @@ export PATH=/usr/local/bin:\
 /usr/local/games:\
 $HOME/.bin:\
 /$HOME/Library/Python/3.6/bin:\
+/$HOME/go/bin:\
 $PATH
+
+export GOPATH=$HOME/go
 
 eval "$(nodenv init -)"
 eval "$(pyenv init -)"
@@ -195,6 +174,8 @@ alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Ch
                         --user-data-dir=`mktemp -d` \
                         --no-first-run"
 alias frs="find_rspec"
+
+alias antibody-reload-bundle="antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh"
 
 if [ -f $HOME/.zsh.local ]; then
   source $HOME/.zsh.local;
