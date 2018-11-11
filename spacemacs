@@ -516,6 +516,8 @@ before packages are loaded."
                     ,(rx (or "#" "=begin"))                        ; Comment start
                     ruby-forward-sexp nil)))
 
+  (add-to-list 'auto-mode-alist '("\\.zshrc\\'" . sh-mode))
+  (add-to-list 'auto-mode-alist '("\\zshrc\\'" . sh-mode))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
