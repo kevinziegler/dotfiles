@@ -15,7 +15,6 @@ if [[ -o interactive ]]; then
       antibody bundle < $ZSH_PLUGINS_SRC > $ZSH_PLUGINS_BUNDLE
   fi
 
-
   source $ZSH_PLUGINS_BUNDLE
 fi
 
