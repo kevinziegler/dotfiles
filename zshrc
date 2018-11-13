@@ -1,23 +1,6 @@
 ZSH_PLUGINS_SOURCE=$HOME/.dotfiles/zsh_plugins.txt
 ZSH_PLUGINS_BUNDLE=$HOME/.zsh_plugins.sh
 
-if [[ -o interactive ]]; then
-  # Load Iterm2 Shell integration
-  if [[ -s $HOME/.iterm2_shell_integration.zsh && $TERM_PROGRAM =~ iTerm ]]; then
-      source $HOME/.iterm2_shell_integration.zsh
-  fi
-
-  autoload -Uz compinit
-  compinit
-
-  if [[ ! -a $ZSH_PLUGINS_BUNDLE ]]; then
-      echo "WARNING: Couldn't find antibody bundle.  Regenerating..."
-      antibody bundle < $ZSH_PLUGINS_SRC > $ZSH_PLUGINS_BUNDLE
-  fi
-
-  source $ZSH_PLUGINS_BUNDLE
-fi
-
 export PATH=/usr/local/bin:\
 /usr/local/sbin:/usr/sbin:\
 /usr/bin:/sbin:\
@@ -28,6 +11,23 @@ $HOME/.bin:\
 /$HOME/Library/Python/3.6/bin:\
 /$HOME/go/bin:\
 $PATH
+
+if [[ -o interactive ]]; then
+    # Load Iterm2 Shell integration
+    if [[ -s $HOME/.iterm2_shell_integration.zsh && $TERM_PROGRAM =~ iTerm ]]; then
+        source $HOME/.iterm2_shell_integration.zsh
+    fi
+
+    autoload -Uz compinit
+    compinit
+
+    if [[ ! -a $ZSH_PLUGINS_BUNDLE ]]; then
+        echo "WARNING: Couldn't find antibody bundle.  Regenerating..."
+        antibody bundle < $ZSH_PLUGINS_SOURCE > $ZSH_PLUGINS_BUNDLE
+    fi
+
+    source $ZSH_PLUGINS_BUNDLE
+fi
 
 export GOPATH=$HOME/go
 
@@ -181,7 +181,7 @@ alias hide-mycnf="hide_file $HOME/.my.cnf"
 alias seek-mycnf="seek_file $HOME/.my.cnf"
 alias frs="find_rspec"
 alias antibody-reload-bundle="antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh"
-unalias grv # Set by Oh-My-ZSH, interferes with grv application
+# unalias grv # Set by Oh-My-ZSH, interferes with grv application
 
 if [ -f $HOME/.zsh.local ]; then
   source $HOME/.zsh.local;
