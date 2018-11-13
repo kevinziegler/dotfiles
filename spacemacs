@@ -47,24 +47,25 @@ This function should only modify configuration layer settings."
      gtags
      helm
      html
-     html
-     imenu-list
      javascript
      json
+     lsp
      markdown
-     neotree
      org
      osx
      php
+     protobuf
      restclient
      (ruby :variables
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'chruby
            ruby-test-runner 'rspec)
      ruby-on-rails
+     scala
      sql
      syntax-checking
      themes-megapack
+     treemacs
      typescript
      version-control
      vim-empty-lines
