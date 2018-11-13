@@ -177,8 +177,11 @@ alias chrome-no-cors="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Ch
                         --disable-web-security \
                         --user-data-dir=`mktemp -d` \
                         --no-first-run"
+alias hide-mycnf="hide_file $HOME/.my.cnf"
+alias seek-mycnf="seek_file $HOME/.my.cnf"
 alias frs="find_rspec"
 alias antibody-reload-bundle="antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh"
+unalias grv # Set by Oh-My-ZSH, interferes with grv application
 
 if [ -f $HOME/.zsh.local ]; then
   source $HOME/.zsh.local;
