@@ -498,7 +498,7 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq magit-git-executable "/usr/local/bin/git")
-  (setq neo-theme 'icons)
+  ;; (setq neo-theme 'icons)
   (setq org-directory "~/Dropbox (Personal)/org")
   (setq web-mode-markup-indent-offset 2)
   (setq org-hide-emphasis-markers t)
