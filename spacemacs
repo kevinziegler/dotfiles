@@ -58,7 +58,7 @@ This function should only modify configuration layer settings."
      restclient
      (ruby :variables
            ruby-enable-enh-ruby-mode t
-           ruby-version-manager 'chruby
+           ruby-version-manager 'rbenv
            ruby-test-runner 'rspec)
      ruby-on-rails
      scala
@@ -473,6 +473,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (setq rbenv-installation-dir "/usr/local")
   )
 
 (defun dotspacemacs/user-load ()
@@ -493,7 +494,6 @@ before packages are loaded."
   (setq org-directory "~/Dropbox (Personal)/org")
   (setq web-mode-markup-indent-offset 2)
   (setq org-hide-emphasis-markers t)
-  (setq rbenv-installation-dir "/usr/local")
 
   (evil-ex-define-cmd "W" 'evil-write)
   (evil-ex-define-cmd "Wq" 'evil-save-and-close)
