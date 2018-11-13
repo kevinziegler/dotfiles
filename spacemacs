@@ -474,6 +474,14 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq rbenv-installation-dir "/usr/local")
+  (require 'ob-shell)
+  (require 'ob-ruby)
+  (require 'ob-python)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)
+     (ruby . t)
+     (shell . t)))
   )
 
 (defun dotspacemacs/user-load ()
