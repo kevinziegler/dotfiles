@@ -19,7 +19,11 @@ if [[ -o interactive ]]; then
     fi
 
     autoload -Uz compinit
-    compinit
+    if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+      compinit
+    else
+      compinit -C
+    fi
 
     if [[ ! -a $ZSH_PLUGINS_BUNDLE ]]; then
         echo "WARNING: Couldn't find antibody bundle.  Regenerating..."
