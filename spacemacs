@@ -221,8 +221,8 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    ;; dotspacemacs-themes '(spacemacs-dark spacemacs-light)
    ;; dotspacemacs-themes '(solarized-dark solarized-light)
-   ;; dotspacemacs-themes '(kaolin-dark kaolin-light)
-   dotspacemacs-themes '(doom-city-lights solarized-light)
+   dotspacemacs-themes '(kaolin-dark kaolin-light)
+   ;; dotspacemacs-themes '(doom-city-lights solarized-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
