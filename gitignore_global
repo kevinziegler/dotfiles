@@ -54,3 +54,6 @@ Thumbs.db
 # IDE generated files #
 ######################
 .idea/
+
+# Org Projectile file
+TODOS.org
