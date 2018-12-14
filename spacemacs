@@ -63,6 +63,7 @@ This function should only modify configuration layer settings."
            ruby-test-runner 'rspec)
      ruby-on-rails
      scala
+     shell-scripts
      sql
      syntax-checking
      themes-megapack
@@ -526,8 +527,10 @@ before packages are loaded."
                     ,(rx (or "#" "=begin"))                        ; Comment start
                     ruby-forward-sexp nil)))
 
-  (add-to-list 'auto-mode-alist '("\\.zshrc\\'" . sh-mode))
-  (add-to-list 'auto-mode-alist '("\\zshrc\\'" . sh-mode))
+  (add-hook 'sh-mode-hook
+            (lambda ()
+              (if (string-match "zshrc$" buffer-file-name)
+                  (sh-set-shell "zsh"))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
