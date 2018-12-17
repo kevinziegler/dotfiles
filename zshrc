@@ -36,7 +36,7 @@ fi
 export GOPATH=$HOME/go
 
 eval "$(nodenv init -)"
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 
 ### Enable History substring search, even with VI mode
