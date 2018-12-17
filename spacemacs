@@ -530,8 +530,7 @@ before packages are loaded."
   (add-hook 'sh-mode-hook
             (lambda ()
               (if (string-match "zshrc$" buffer-file-name)
-                  (sh-set-shell "zsh"))))
-  )
+                  (sh-set-shell "zsh")))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
