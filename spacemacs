@@ -516,16 +516,16 @@ before packages are loaded."
   (add-to-list 'default-frame-alist '(width . 180))
 
   ;; Code folding
-  (add-hook 'ruby-mode-hook
+  (add-hook 'enh-ruby-mode-hook
             (lambda () (hs-minor-mode)))
 
   (eval-after-load "hideshow"
     '(add-to-list 'hs-special-modes-alist
-                  `(ruby-mode
+                  `(enh-ruby-mode
                     ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
                     ,(rx (or "}" "]" "end"))                       ; Block end
                     ,(rx (or "#" "=begin"))                        ; Comment start
-                    ruby-forward-sexp nil)))
+                    enh-ruby-forward-sexp nil)))
 
   (add-hook 'sh-mode-hook
             (lambda ()
