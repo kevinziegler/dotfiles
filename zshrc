@@ -51,7 +51,12 @@ function history-fzf() {
         tac="tail -r"
     fi
 
-    BUFFER=$(history -n 1 | eval $tac | fzf --query "$LBUFFER" --border --height=40% --reverse)
+    BUFFER=$(                                                     \
+        history -n 1                                              \
+        | eval $tac                                               \
+        | fzf --query "$LBUFFER" --border --height=40% --reverse
+    )
+
     CURSOR=$#BUFFER
 
     zle reset-prompt
