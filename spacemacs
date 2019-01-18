@@ -63,6 +63,9 @@ This function should only modify configuration layer settings."
            ruby-test-runner 'rspec)
      ruby-on-rails
      scala
+     (shell :variables
+            shell-default-shell 'multi-term
+            multi-term-program "/usr/local/bin/zsh")
      shell-scripts
      sql
      syntax-checking
