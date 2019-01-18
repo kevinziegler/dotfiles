@@ -11,6 +11,11 @@ GPATH
 GRTAGS
 GTAGS
 
+# Ensime
+.ensime
+.ensime_cache
+ensime.sbt
+
 
 ### Added for BigCommerce
 # Compiled source #
