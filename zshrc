@@ -103,7 +103,6 @@ fi
 SAVEHIST=10000
 
 ### Environment configuration
-export PAGER=vimpager
 export EDITOR=vim
 export CLICOLOR=1
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
