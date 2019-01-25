@@ -132,6 +132,17 @@ function find_rspec() {
     fi
 }
 
+function vim-fzf() {
+    local fname=$(fzf)
+
+    if [[ -z $fname ]]; then
+        return
+    fi
+
+    print -s "vim $fname"
+    vim $fname
+}
+
 ### Aliases
 alias be="bundle exec"
 alias ec="emacsclient-cli"
@@ -139,6 +150,7 @@ alias hide-mycnf="hide_file $HOME/.my.cnf"
 alias seek-mycnf="seek_file $HOME/.my.cnf"
 alias frs="find_rspec"
 alias antibody-reload-bundle="antibody bundle < $ZSH_PLUGINS_SOURCE > $ZSH_PLUGINS_BUNDLE"
+alias vf="vim-fzf"
 unalias grv # Set by Oh-My-ZSH, interferes with grv application
 
 if [ -f $HOME/.zsh.local ]; then
