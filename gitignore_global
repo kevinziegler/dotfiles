@@ -62,3 +62,6 @@ Thumbs.db
 
 # Org Projectile file
 TODOS.org
+
+# Emacs local files
+.dir-locals.el
