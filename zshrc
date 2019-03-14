@@ -1,7 +1,10 @@
+export TERM="xterm-256color"
+
 ZSH_PLUGINS_SOURCE=$HOME/.dotfiles/zsh_plugins.txt
 ZSH_PLUGINS_BUNDLE=$HOME/.zsh_plugins.sh
 
 source $HOME/.dotfiles/hide-seek.zsh
+source $HOME/.dotfiles/powerlevel9k.mavam.zsh
 
 export PATH=/usr/local/bin:\
 /usr/local/sbin:/usr/sbin:\
