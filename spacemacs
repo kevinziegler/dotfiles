@@ -502,6 +502,9 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+
+  (mac-auto-operator-composition-mode t)
+
   (setq magit-git-executable "/usr/local/bin/git")
   ;; (setq neo-theme 'icons)
   (setq org-directory "~/Dropbox (Personal)/org")
