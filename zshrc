@@ -108,7 +108,6 @@ SAVEHIST=10000
 ### Environment configuration
 export EDITOR=vim
 export CLICOLOR=1
-export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 function emacsclient-cli() {
     local path_arg=".";
