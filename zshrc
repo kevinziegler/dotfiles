@@ -153,7 +153,6 @@ alias seek-mycnf="seek_file $HOME/.my.cnf"
 alias frs="find_rspec"
 alias antibody-reload-bundle="antibody bundle < $ZSH_PLUGINS_SOURCE > $ZSH_PLUGINS_BUNDLE"
 alias vf="vim-fzf"
-unalias grv # Set by Oh-My-ZSH, interferes with grv application
 
 if [ -f $HOME/.zsh.local ]; then
   source $HOME/.zsh.local;
