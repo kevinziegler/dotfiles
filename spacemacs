@@ -55,6 +55,7 @@ This function should only modify configuration layer settings."
      org
      osx
      php
+     plantuml
      protobuf
      restclient
      (ruby :variables
@@ -484,9 +485,13 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (require 'ob-python)
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t)
+   '((plantuml . t)
+     (python . t)
      (ruby . t)
      (shell . t)))
+
+  (add-to-list 'configuration-layer-elpa-archives '("melpa-stable" . "stable.melpa.org/packages/"))
+  (add-to-list 'package-pinned-packages '(ensime . "melpa-stable"))
   )
 
 (defun dotspacemacs/user-load ()
@@ -532,6 +537,9 @@ before packages are loaded."
                     ,(rx (or "}" "]" "end"))                       ; Block end
                     ,(rx (or "#" "=begin"))                        ; Comment start
                     enh-ruby-forward-sexp nil)))
+
+  (setq org-plantuml-jar-path
+        (expand-file-name "/usr/local/Cellar/plantuml/1.2019.5/libexec/plantuml.jar"))
 
   (add-hook 'sh-mode-hook
             (lambda ()
