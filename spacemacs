@@ -546,6 +546,16 @@ before packages are loaded."
   (setq org-plantuml-jar-path
         (expand-file-name "/usr/local/Cellar/plantuml/1.2019.5/libexec/plantuml.jar"))
 
+  ;; Fix to ensure quiting minibuffer doesn't cause weird behavior where 'd'
+  ;; acts as 'dd'
+  ;; See: https://github.com/syl20bnr/spacemacs/issues/10410
+  (defun kill-minibuffer ()
+    (interactive)
+    (when (windowp (active-minibuffer-window))
+      (evil-ex-search-exit)))
+
+  (add-hook 'mouse-leave-buffer-hook #'kill-minibuffer)
+
   (add-hook 'sh-mode-hook
             (lambda ()
               (if (string-match "zshrc$" buffer-file-name)
