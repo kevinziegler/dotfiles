@@ -56,7 +56,8 @@ This function should only modify configuration layer settings."
      org
      osx
      php
-     plantuml
+     (plantuml :variables
+               plantuml-jar-path "/usr/local/Cellar/plantuml/1.2019.6/libexec/plantuml.jar")
      protobuf
      restclient
      (ruby :variables
@@ -545,7 +546,7 @@ before packages are loaded."
                     enh-ruby-forward-sexp nil)))
 
   (setq org-plantuml-jar-path
-        (expand-file-name "/usr/local/Cellar/plantuml/1.2019.5/libexec/plantuml.jar"))
+        (expand-file-name "/usr/local/Cellar/plantuml/1.2019.6/libexec/plantuml.jar"))
 
   ;; Fix to ensure quiting minibuffer doesn't cause weird behavior where 'd'
   ;; acts as 'dd'
