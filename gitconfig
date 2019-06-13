@@ -27,7 +27,7 @@
   path=.gitconfig.local
 [github]
 	user = kevinziegler
-	oauth-token = e6004982f1f0f3f8496d659c0f36d0dde9002c7d
+	oauth-token = CHANGEME
 
 [color]
         ui = auto
