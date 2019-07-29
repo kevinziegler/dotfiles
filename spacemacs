@@ -534,6 +534,10 @@ before packages are loaded."
   (add-to-list 'default-frame-alist '(width . 180))
 
   (add-hook 'org-mode-hook (lambda () (vim-empty-lines-mode -1)))
+
+  (setq org-startup-indented t) ; Enable `org-indent-mode' by default
+  (add-hook 'org-mode-hook #'visual-line-mode)
+
   ;; Code folding
   (add-hook 'enh-ruby-mode-hook
             (lambda () (hs-minor-mode)))
