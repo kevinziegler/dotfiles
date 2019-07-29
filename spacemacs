@@ -533,6 +533,7 @@ before packages are loaded."
   (add-to-list 'default-frame-alist '(height . 50))
   (add-to-list 'default-frame-alist '(width . 180))
 
+  (add-hook 'org-mode-hook (lambda () (vim-empty-lines-mode -1)))
   ;; Code folding
   (add-hook 'enh-ruby-mode-hook
             (lambda () (hs-minor-mode)))
