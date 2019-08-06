@@ -53,7 +53,7 @@ This function should only modify configuration layer settings."
      json
      lsp
      markdown
-     org
+     (org :variables org-enable-org-journal-support t)
      osx
      php
      (plantuml :variables
@@ -522,6 +522,7 @@ before packages are loaded."
   (setq org-directory "~/Dropbox (Personal)/org")
   (setq web-mode-markup-indent-offset 2)
   (setq org-hide-emphasis-markers t)
+  (setq org-journal-dir "~/notes/journal/")
 
   (evil-ex-define-cmd "W" 'evil-write)
   (evil-ex-define-cmd "Wq" 'evil-save-and-close)
