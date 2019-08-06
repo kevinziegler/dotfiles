@@ -51,7 +51,9 @@ This function should only modify configuration layer settings."
      html
      javascript
      json
-     lsp
+     (lsp :variables
+          lsp-ui-sideline-enable nil
+          lsp-ui-doc-enable nil)
      markdown
      (org :variables org-enable-org-journal-support t)
      osx
