@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
      gtags
      helm
      html
+     (java :variables java-backend 'lsp)
      javascript
      json
      (lsp :variables
