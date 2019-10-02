@@ -530,6 +530,9 @@ before packages are loaded."
   (setq org-hide-emphasis-markers t)
   (setq org-journal-dir "~/notes/journal/")
 
+  (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
+  (setq doom-modeline-buffer-encoding nil)
+
   (evil-ex-define-cmd "W" 'evil-write)
   (evil-ex-define-cmd "Wq" 'evil-save-and-close)
   (evil-ex-define-cmd "WQ" 'evil-save-and-close)
