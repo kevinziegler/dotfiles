@@ -529,6 +529,8 @@ before packages are loaded."
   (setq web-mode-markup-indent-offset 2)
   (setq org-hide-emphasis-markers t)
   (setq org-journal-dir "~/notes/journal/")
+  (setq org-default-notes-file "~/notes/random.org")
+  (setq org-insert-heading-respect-content t)
 
   (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
   (setq doom-modeline-buffer-encoding nil)
