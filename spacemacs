@@ -501,6 +501,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
      (ruby . t)
      (shell . t)))
 
+  (setq org-agenda-files '("~/notes" "~/notes/journal/"))
+
   (add-to-list 'configuration-layer-elpa-archives '("melpa-stable" . "stable.melpa.org/packages/"))
   (add-to-list 'package-pinned-packages '(ensime . "melpa-stable"))
   )
