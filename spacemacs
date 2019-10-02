@@ -48,7 +48,6 @@ This function should only modify configuration layer settings."
      evil-snipe
      git
      github
-     gtags
      helm
      html
      (java :variables java-backend 'lsp)
@@ -72,8 +71,8 @@ This function should only modify configuration layer settings."
      ruby-on-rails
      scala
      (shell :variables
-            shell-default-shell 'multi-term
-            multi-term-program "/usr/local/bin/zsh")
+            shell-default-shell 'vterm
+            vterm-shell "/usr/local/bin/zsh")
      shell-scripts
      sql
      syntax-checking
