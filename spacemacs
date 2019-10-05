@@ -33,7 +33,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(react
+   '(vimscript
+     react
      go
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -53,11 +54,13 @@ This function should only modify configuration layer settings."
      (java :variables java-backend 'lsp)
      javascript
      json
+     kotlin
      (lsp :variables
           lsp-ui-sideline-enable nil
           lsp-ui-doc-enable nil)
      markdown
-     (org :variables org-enable-org-journal-support t)
+     (org :variables
+          org-enable-org-journal-support t)
      osx
      php
      (plantuml :variables
