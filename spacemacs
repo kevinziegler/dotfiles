@@ -67,7 +67,8 @@ This function should only modify configuration layer settings."
      (plantuml :variables
                plantuml-jar-path "/usr/local/Cellar/plantuml/1.2019.6/libexec/plantuml.jar")
      protobuf
-     restclient
+     (restclient :variables
+                 restclient-use-org t)
      (ruby :variables
            ruby-backend 'lsp
            ruby-version-manager 'rbenv
