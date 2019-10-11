@@ -496,6 +496,8 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq rbenv-installation-dir "/usr/local")
+
+  ;; Enable languages for org babel
   (require 'ob-shell)
   (require 'ob-ruby)
   (require 'ob-python)
