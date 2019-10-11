@@ -537,6 +537,11 @@ before packages are loaded."
   (setq org-default-notes-file "~/notes/random.org")
   (setq org-insert-heading-respect-content t)
 
+  (setq org-link-abbrev-alist
+        '(("git.heb" . "https://git.heb.com/")
+          ("github" . "https://github.com/")
+          ("jira" . "https://hebecom.atlassian.net/browse/")))
+
   (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
   (setq doom-modeline-buffer-encoding nil)
 
