@@ -495,6 +495,11 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+
+  ;; Stubbed org-time-add and org-time-less-p to deal with them not being defined
+  (defun org-time-add (&rest args))
+  (defun org-time-less-p (&rest args))
+
   (setq rbenv-installation-dir "/usr/local")
 
   ;; Enable languages for org babel
