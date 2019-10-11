@@ -510,6 +510,19 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   (setq org-agenda-files '("~/notes" "~/notes/journal/"))
 
+  (setq lombok-jar-path
+        (expand-file-name
+         "~/.m2/repository/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar"))
+
+  (with-eval-after-load 'lsp-java
+    (setq lsp-java-vmargs
+          `("-noverify"
+            "-Xmx2G"
+            "-XX:+UseG1GC"
+            "-XX:+UseStringDeduplication"
+            ,(concat "-javaagent:" lombok-jar-path)
+            ,(concat "-Xbootclasspath/a:" lombok-jar-path))))
+
   (add-to-list 'configuration-layer-elpa-archives '("melpa-stable" . "stable.melpa.org/packages/"))
   (add-to-list 'package-pinned-packages '(ensime . "melpa-stable"))
   )
