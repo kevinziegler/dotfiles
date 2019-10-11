@@ -43,6 +43,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      dap
+     confluence
      copy-as-format
      docker
      emacs-lisp
