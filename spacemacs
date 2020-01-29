@@ -45,6 +45,9 @@ This function should only modify configuration layer settings."
      dap
      confluence
      copy-as-format
+     (dash :variables
+           helm-dash-docset-newpath "~/Library/Application Support/Dash/DocSets"
+           dash-docs-docset-newpath "~/Library/Application Support/Dash/DocSets")
      docker
      emacs-lisp
      evil-snipe
