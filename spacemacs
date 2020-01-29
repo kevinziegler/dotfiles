@@ -48,13 +48,17 @@ This function should only modify configuration layer settings."
      (dash :variables
            helm-dash-docset-newpath "~/Library/Application Support/Dash/DocSets"
            dash-docs-docset-newpath "~/Library/Application Support/Dash/DocSets")
+     deft
      docker
      emacs-lisp
      evil-snipe
      git
      github
      helm
+     helpful
      html
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     imenu-list
      (java :variables java-backend 'lsp)
      javascript
      json
@@ -64,7 +68,9 @@ This function should only modify configuration layer settings."
           lsp-ui-doc-enable nil)
      markdown
      (org :variables
-          org-enable-org-journal-support t)
+          org-enable-org-journal-support t
+          org-enable-github-support t
+          org-enable-reveal-js-support t)
      osx
      php
      (plantuml :variables
@@ -80,15 +86,20 @@ This function should only modify configuration layer settings."
      scala
      (shell :variables
             shell-default-shell 'vterm
-            vterm-shell "/usr/local/bin/zsh")
+            shell-default-term-shell "/usr/local/bin/zsh")
      shell-scripts
+     spell-checking
      sql
      syntax-checking
+     terraform
      themes-megapack
-     treemacs
+     (treemacs :variables
+               treemacs-use-follow-mode t
+               treemacs-collapse-dirs 4)
      typescript
      version-control
      vim-empty-lines
+     vue
      yaml
      )
 
