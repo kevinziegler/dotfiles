@@ -1,8 +1,11 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export TERM="xterm-256color"
 
 ZSH_PLUGINS_SOURCE=$HOME/.dotfiles/zsh_plugins.txt
 ZSH_PLUGINS_BUNDLE=$HOME/.zsh_plugins.sh
-
 source $HOME/.dotfiles/hide-seek.zsh
 source $HOME/.dotfiles/powerlevel9k.mavam.zsh
 
