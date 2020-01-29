@@ -623,6 +623,15 @@ before packages are loaded."
   (setq org-plantuml-jar-path
         (expand-file-name "/usr/local/Cellar/plantuml/1.2019.6/libexec/plantuml.jar"))
 
+  (doom-themes-treemacs-config)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config)
+
+  (with-eval-after-load "persp-mode-autoloads"
+    (setq wg-morph-on nil) ;; switch off animation
+    (setq persp-autokill-buffer-on-remove 'kill-weak)
+    (add-hook 'after-init-hook #'(lambda () (persp-mode 1))))
+
   ;; Fix to ensure quiting minibuffer doesn't cause weird behavior where 'd'
   ;; acts as 'dd'
   ;; See: https://github.com/syl20bnr/spacemacs/issues/10410
