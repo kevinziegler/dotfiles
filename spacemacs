@@ -527,6 +527,21 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   (setq org-agenda-files '("~/notes" "~/notes/journal/"))
 
+  (with-eval-after-load 'org
+    (setq org-capture-templates
+                 '(("f" "Jira Feature Ticket Note"
+                    entry (file "~/notes/tickets.org")
+                    (file "~/.dotfiles/capture-templates/feature-ticket.org.tpl"))
+                   ("b" "Jira Bug Ticket Note"
+                    entry (file "~/notes/tickets.org")
+                    (file "~/.dotfiles/capture-templates/bug-ticket.org.tpl"))
+                   ("d" "Technical debt Note"
+                    entry (file "~/notes/general.org")
+                    "* TODO Technical debt work: %?\nFound in: [[file:%F][%f]]")
+                   ("r" "Retro thought"
+                    entry (file "~/notes/general.org")
+                    "* TODO Discuss in next retro: %?"))))
+
   (setq lombok-jar-path
         (expand-file-name
          "~/.m2/repository/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar"))
