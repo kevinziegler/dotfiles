@@ -47,6 +47,9 @@ eval "$(nodenv init -)"
 # eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
 ### Enable History substring search, even with VI mode
 function history-fzf() {
     local tac
