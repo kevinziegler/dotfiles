@@ -181,6 +181,10 @@
         :desc "Messages" "m" #'switch-to-message-buffer
         :desc "Copy Buffer" "y" #'copy-whole-buffer))
 
+(map! :leader
+      (:prefix "g"
+        :desc "Worktrees" "w" #'magit-worktree))
+
 (map! :leader "x" nil)
 (map! :leader
       (:prefix ("x" . "Text")
