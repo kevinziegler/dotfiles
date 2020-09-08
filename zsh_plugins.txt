@@ -12,3 +12,5 @@
   eendroroy/zed-zsh
   romkatv/powerlevel10k.git
   hlissner/zsh-autopair
+  akoenig/npm-run.plugin.zsh
+  Aloxaf/fzf-tab
