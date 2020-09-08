@@ -1,3 +1,14 @@
+awsvault_prompt() {
+    if [ ! -z "${AWS_VAULT-}" ]; then
+        echo -n " ${AWS_VAULT-} "
+    fi
+}
+
+typeset -g POWERLEVEL9K_CUSTOM_AWSVAULT="awsvault_prompt"
+typeset -g POWERLEVEL9K_CUSTOM_AWSVAULT_FOREGROUND="red"
+typeset -g POWERLEVEL9K_CUSTOM_AWSVAULT_BACKGROUND="clear"
+typeset -g POWERLEVEL9K_CUSTOM_AWSVAULT_VISUAL_IDENTIFIER_EXPANSION=''
+
 POWERLEVEL9K_MODE='nerdfont-complete'
 #POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 #POWERLEVEL9K_SHORTEN_DELIMITER=""
@@ -12,7 +23,7 @@ POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" %F{white}\u279C %F{white} "
 # POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" %F{white}\uf460%F{white} "
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir dir_writable_joined rbenv)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir dir_writable_joined rbenv custom_awsvault)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time
                                     vcs background_jobs_joined time_joined)
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="clear"
