@@ -1,27 +1,16 @@
 # Link config files
 ln -s $HOME/.dotfiles/psqlrc $HOME/.psqlrc
 ln -s $HOME/.dotfiles/spacemacs $HOME/.spacemacs
-ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
+ln -s $HOME/.dotfiles/zshrc.zsh $HOME/.zshrc
 ln -s $HOME/.dotfiles/gitconfig $HOME/.gitconfig
 ln -s $HOME/.dotfiles/gitignore_global $HOME/.gitignore_global
 ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
 ln -s $HOME/.dotfiles/com.mizage.Divvy.plist $HOME/Library/Preferences/com.mizage.Divvy.plist
 
-# Install homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew doctor
-
-brew bundle
-
-# Setup vim plugins
-curl -fLo ~/.vim/autoload/plug.vim \
-     --create-dirs \
-     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-vim +PlugInstall +qall
+# brew bundle
 
 # Setup spacemacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+#git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # Manual steps
 echo "TODO items for the human:"

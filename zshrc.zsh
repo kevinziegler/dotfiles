@@ -4,6 +4,8 @@ fi
 
 export TERM="xterm-256color"
 
+export FZF_DEFAULT_OPTS="--prompt='➜ ' --pointer='•'"
+
 ZSH_PLUGINS_SOURCE=$HOME/.dotfiles/zsh_plugins.txt
 ZSH_PLUGINS_BUNDLE=$HOME/.zsh_plugins.sh
 source $HOME/.dotfiles/hide-seek.zsh
@@ -42,12 +44,10 @@ if [[ -o interactive ]]; then
 fi
 
 export GOPATH=$HOME/go
+export PATH="$HOME/.jenv/bin:$PATH"
 
 eval "$(nodenv init -)"
-# eval "$(pyenv init -)"
 eval "$(rbenv init -)"
-
-export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 ### Enable History substring search, even with VI mode
@@ -112,53 +112,48 @@ fi
 SAVEHIST=10000
 
 ### Environment configuration
-export EDITOR=vim
+export EDITOR="emacsclient -c"
+export ALTERNATE_EDITOR="vim"
 export CLICOLOR=1
-
-function emacsclient-cli() {
-    local path_arg=".";
-
-    # Set the path if it's provided as an arg
-    if (( ${+1} )); then path_arg=$1; fi
-
-    emacsclient -n $path_arg;
-}
-
-function find_rspec() {
-    if [[ -z $(which fzf) ]]; then
-        echo "FZF not found.  Run 'brew install fzf' to fix this"
-        return
-    fi
-
-    local spec_list=$(find spec -name "*.rb" | fzf --multi)
-    if [[ ! -z $spec_list ]]; then
-        local command="bundle exec rspec $spec_list"
-        echo $command
-        print -s $command
-        bundle exec rspec $spec_list
-    fi
-}
-
-function vim-fzf() {
-    local fname=$(fzf)
-
-    if [[ -z $fname ]]; then
-        return
-    fi
-
-    print -s "vim $fname"
-    vim $fname
-}
 
 ### Aliases
 alias be="bundle exec"
-alias ec="emacsclient-cli"
+alias ec="emacsclient -nc"
 alias hide-mycnf="hide_file $HOME/.my.cnf"
 alias seek-mycnf="seek_file $HOME/.my.cnf"
-alias frs="find_rspec"
-alias antibody-reload-bundle="antibody bundle < $ZSH_PLUGINS_SOURCE > $ZSH_PLUGINS_BUNDLE"
-alias vf="vim-fzf"
+alias antibody-reload="antibody bundle < $ZSH_PLUGINS_SOURCE > $ZSH_PLUGINS_BUNDLE"
+alias ave="opav exec"
+alias av="opav"
 
 if [ -f $HOME/.zsh.local ]; then
   source $HOME/.zsh.local;
 fi
+
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+export PATH=$PATH:"$HOME/doom/.emacs.d/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
+
+function vterm_printf(){
+    if [ -n "$TMUX" ]; then
+        # Tell tmux to pass the escape sequences through
+        # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+vterm_prompt_end() {
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)";
+}
+
+setopt PROMPT_SUBST
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
