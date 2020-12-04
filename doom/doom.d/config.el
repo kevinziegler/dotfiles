@@ -168,10 +168,6 @@
 
 (map! :leader :desc "Change Major Mode" "M" #'counsel-major)
 
-(map! :leader
-      (:prefix "c"
-        :desc "(Un)comment Lines" "l" #'evilnc-comment-or-uncomment-lines))
-
 (defun switch-to-message-buffer ()
     (interactive)
     (pop-to-buffer "*Messages*"))
@@ -184,16 +180,6 @@
 (map! :leader
       (:prefix "g"
         :desc "Worktrees" "w" #'magit-worktree))
-
-(map! :leader "x" nil)
-(map! :leader
-      (:prefix ("x" . "Text")
-        :desc "Upcase region" "U" #'upcase-region
-        :desc "Downcase region" "u" #'downcase-region
-        (:prefix ("y" . "Copy as Format")
-          :desc "Copy for Slack" "s" #'copy-as-format-slack
-          :desc "Copy for Jira" "j" #'copy-as-format-jira
-          :desc "Copy as HTML" "h" #'copy-as-format-html)))
 
 ;; Set default window size
 (add-to-list 'default-frame-alist '(height . 50))
