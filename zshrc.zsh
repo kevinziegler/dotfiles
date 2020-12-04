@@ -1,36 +1,47 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+prompt_cache="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+[[ -r $prompt_cache ]] && source $prompt_cache;
 
 ### Environment configuration
 export ZSH_PLUGINS_SOURCE=$HOME/.dotfiles/zsh_plugins.txt
 export ZSH_PLUGINS_BUNDLE=$HOME/.zsh_plugins.sh
-export GOPATH=$HOME/go
 export TERM="xterm-256color"
 export FZF_DEFAULT_OPTS="--prompt='➜ ' --pointer='•'"
-export EDITOR="emacsclient -c"
+export EDITOR="emacs-client-editor"
 export ALTERNATE_EDITOR="vim"
 export CLICOLOR=1
 
+if type vivid > /dev/null; then
+    export LS_COLORS="$(vivid generate snazzy)"
+fi
+
 fpath+="$HOME/.dotfiles/zsh/functions"
 
-autoload -Uz history-fzf vterm_printf vterm_prompt_end source-optional iterm-init compinit-refresh plugin-init
+autoloads=(
+    history-fzf
+    vterm_printf
+    vterm_prompt_end
+    source-optional
+    iterm-init
+    compinit-refresh
+    plugin-init
+    emacs-client-editor
+)
 
-export PATH=/usr/local/bin:\
-/usr/local/sbin:/usr/sbin:\
-/usr/bin:/sbin:\
-/bin:\
-/usr/games:\
-/usr/local/games:\
-$HOME/.bin:\
-$HOME/go/bin:\
-$HOME/doom/.emacs.d/bin\
-$PATH
+path_additions=(
+    /usr/local/sbin
+    /usr/local/bin
+    $HOME/.bin
+    $HOME/go/bin
+    $HOME/.emacs.d/bin
+);
+
+autoload -Uz $autoloads
+export PATH=${(j-:-)path_additions}:$PATH
 
 if [[ -o interactive ]]; then
     iterm-init
     compinit-refresh
-    plugin-init "$ZSH_PLUGINS_BUNDLE" "$ZSH_PLUGINS_SROUCE"
+    plugin-init "$ZSH_PLUGINS_BUNDLE" "$ZSH_PLUGINS_SOURCE"
 fi
 
 source $HOME/.dotfiles/hide-seek.zsh
@@ -44,3 +55,4 @@ source $HOME/.dotfiles/zsh/emacs.zsh
 source-optional $HOME/.local.zsh
 source-optional $HOME/.fzf.zsh
 source-optional /usr/local/opt/asdf/asdf.sh
+source-optional $HOME/.p10k.zsh
