@@ -2,9 +2,9 @@ function plugin-init() {
     local bundle=$1
     local manifest=$2
     if [[ ! -a $bundle ]]; then
-        echo "WARNING: Couldn't find antibody bundle.  Regenerating..."
+        echo "WARNING: Couldn't find antibody bundle.  Regenerating from $manifest..."
         antibody bundle < $manifest > $bundle
     fi
 
-    source $ZSH_PLUGINS_BUNDLE
+    source $bundle
 }
