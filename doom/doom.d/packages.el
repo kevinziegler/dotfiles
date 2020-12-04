@@ -54,6 +54,3 @@
 (package! ox-gfm)
 (package! git-link)
 (package! org-jira)
-(package! copy-as-format)
-
-(package! jenv :recipe (:host github :repo "shellbj/jenv.el"))
