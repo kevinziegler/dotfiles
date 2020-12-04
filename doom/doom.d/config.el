@@ -109,7 +109,7 @@
           ,(concat "-Xbootclasspath/a:" lombok-jar-path))))
 
 (after! dap-java
-  (setq dap-java-test-runner (concat doom-local-dir "etc/eclipse.jdt.ls/server/test-runner/junit-platform-console-standalone.jar")))
+  (setq dap-java-test-runner (concat doom-etc-dir "eclipse.jdt.ls/server/test-runner/junit-platform-console-standalone.jar")))
 
 (setq magit-repository-directories
       '(("~/dev" . 2)
