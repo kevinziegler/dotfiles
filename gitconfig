@@ -1,6 +1,5 @@
 [user]
 	name = Kevin Ziegler
-	#email = kevinz@spicework.com
 [core]
 	excludesfile = ~/.dotfiles/gitignore_global
 	editor = /usr/bin/vim
