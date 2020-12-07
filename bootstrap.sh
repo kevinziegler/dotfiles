@@ -48,7 +48,8 @@ echo "Cloning dotfiles repository";
 git clone "$DOTFILES_REPOSITORY" "$DOTFILES";
 
 echo "Setting up 1Password...";
-open "$(find /Applications -name "1Password*.app" -depth 1)";
+open -a "$(brew info --cask --json=v2 "1password" | jq -r '.casks[0].artifacts[0][0]')";
+
 echo "Waiting for you to sign into the 1Password Application...press <ENTER> to continue";
 read;
 eval "$(op signin "$ONEPASSWORD_ADDRESS" "$EMAIL")";
@@ -68,6 +69,7 @@ hub api user/keys \
 
 echo "Adding Gitlab SSH key...";
 GITLAB_TOKEN=$(op get item "$GITLAB_OP_ITEM" --fields "Setup Token");
+
 curl -X POST \
 	--header "Authorization: Bearer $GITLAB_TOKEN" \
 	--data-urlencode "key=$(ssh-keygen -y -f "$SSH_KEY")" \
