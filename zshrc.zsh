@@ -14,7 +14,8 @@ if type vivid > /dev/null; then
     export LS_COLORS="$(vivid generate snazzy)"
 fi
 
-fpath+="$HOME/.dotfiles/zsh/functions"
+fpath+="$HOME/.dotfiles/zsh/functions";
+fpath+="/usr/local/share/zsh/site-functions";
 
 autoloads=(
     history-fzf
