@@ -17,6 +17,10 @@ ONEPASSWORD_ADDRESS="my.1password.com";
 GITHUB_HUB_CONFIG="$HOME/.config/hub";
 GITHUB_OP_ITEM="github";
 
+# Configuration for Gitlab
+GITLAB_OP_ITEM="gitlab";
+GITLAB_API_ADD_SSH_KEY="https://gitlab.com/api/v4/user/keys";
+
 # Github repos pulled in as part of setup
 GITHUB_DOTFILES_REPO="kevinziegler/dotfiles";
 GITHUB_DOOM_REPO="hlissner/doom-emacs";
@@ -61,6 +65,14 @@ echo "Adding Github SSH key...";
 hub api user/keys \
 	--field title="Generated key for $(hostname)" \
 	--field key="$(ssh-keygen -y -f "$SSH_KEY")";
+
+echo "Adding Gitlab SSH key...";
+GITLAB_TOKEN=$(op get item "$GITLAB_OP_ITEM" --fields "Setup Token");
+curl -X POST \
+	--header "Authorization: Bearer $GITLAB_TOKEN" \
+	--data-urlencode "key=$(ssh-keygen -y -f "$SSH_KEY")" \
+	--data-urlencode "title=$(hostname)" \
+	$GITLAB_API_ADD_SSH_KEY;
 
 echo "Cloning dotfiles...";
 hub clone "$GITHUB_DOTFILES_REPO" "$DOTFILES"; 
