@@ -82,6 +82,8 @@ brew bundle -f "$DOTFILES/Brewfile";
 
 echo "Linking zshrc...";
 ln -s "$DOTFILES/zshrc.zsh" "$HOME/.zshrc";
+echo "Linking zshenv...";
+ln -s "$DOTFILES/zsh/zshenv.zsh" "$HOME/.zshenv";
 echo "Linking gitconfig...";
 ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig";
 echo "Linking global gitignore...";
@@ -90,7 +92,7 @@ echo "Linking doom.d...";
 ln -s "$DOTFILES/doom/doom.d" "$HOME/.doom.d";
 
 echo "Setting up ZSH Plugins...";
-antibody bundle < "$DOTFILES/zsh/plugins.txt" > "$HOME/plugins.zsh";
+antibody bundle < "$DOTFILES/zsh/plugins.txt" > "$HOME/.plugins.zsh";
 
 echo "Setting up Doom Emacs...";
 hub clone "$GITHUB_DOOM_REPO" "$EMACS";

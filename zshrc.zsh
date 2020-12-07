@@ -1,15 +1,6 @@
 prompt_cache="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 [[ -r $prompt_cache ]] && source $prompt_cache;
 
-### Environment configuration
-export ZSH_PLUGINS_SOURCE=$HOME/.dotfiles/zsh_plugins.txt
-export ZSH_PLUGINS_BUNDLE=$HOME/.zsh_plugins.sh
-export TERM="xterm-256color"
-export FZF_DEFAULT_OPTS="--prompt='➜ ' --pointer='•'"
-export EDITOR="emacs-client-editor"
-export ALTERNATE_EDITOR="vim"
-export CLICOLOR=1
-
 if type vivid > /dev/null; then
     export LS_COLORS="$(vivid generate snazzy)"
 fi
