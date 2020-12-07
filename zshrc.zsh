@@ -10,6 +10,8 @@ autoloads=(
     compinit-refresh
     plugin-init
     emacs-client-editor
+    asdf-install
+    asdf-add-plugin
 );
 
 path_additions=(

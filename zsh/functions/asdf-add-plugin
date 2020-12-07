@@ -1,0 +1,3 @@
+function asdf-add-plugin() {
+    asdf plugin add $(asdf plugin list all | fzf | cut -f1 -d' ');
+}
