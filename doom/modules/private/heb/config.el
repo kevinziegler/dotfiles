@@ -1,5 +1,6 @@
 ;;; heb/config.el -*- lexical-binding: t; -*-
-
+(setq projectile-project-search-path
+      '("~/dev" "~/dev/das" "~/dev/das/deprecated" "~/dev/ohs" "~/dev/chil"))
 ;;; Code:
 ;; (after! org
 ;;   (setq org-link-abbrev-alist
