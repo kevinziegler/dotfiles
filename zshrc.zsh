@@ -1,6 +1,3 @@
-prompt_cache="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-[[ -r $prompt_cache ]] && source $prompt_cache;
-
 autoloads=(
     history-fzf
     vterm_printf
@@ -41,6 +38,9 @@ source_optional=(
 
 fpath+="$DOTFILES/zsh/functions";
 fpath+="/usr/local/share/zsh/site-functions";
+
+prompt_cache="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+[[ -r $prompt_cache ]] && source $prompt_cache;
 
 autoload -Uz $autoloads;
 export PATH=${(j-:-)path_additions}:$PATH;
