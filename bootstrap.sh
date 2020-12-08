@@ -7,7 +7,7 @@ SSH_KEY="$HOME/.ssh/id_$SSH_KEY_TYPE";
 # Configuration for Homebrew Setup & Bootstrapping
 BREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh";
 BREW_BOOTSTRAP=(hub yq);
-CASK_BOOTSTRAP=(1password 1password-cli);
+CASK_BOOTSTRAP=(1password 1password-cli mackup);
 CASK_APPLICATIONS="/Applications";
 
 # Configuration for 1Password setup
@@ -92,6 +92,11 @@ echo "Linking global gitignore...";
 ln -s "$DOTFILES/gitignore_global" "$HOME/.gitignore_global";
 echo "Linking doom.d...";
 ln -s "$DOTFILES/doom/doom.d" "$HOME/.doom.d";
+echo "Linking Mackup configuration...";
+ln -s "$DOTFILES/mackup.cfg" "~/.mackup.cfg";
+
+echo "Restoring mackup managed settings...";
+mackup restore
 
 echo "Setting up ZSH Plugins...";
 antibody bundle < "$DOTFILES/zsh/plugins.txt" > "$HOME/.plugins.zsh";
