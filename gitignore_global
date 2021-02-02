@@ -68,3 +68,6 @@ TODOS.org
 
 # Flycheck tmp files
 flycheck_*
+
+# Personal scratch directory
+kdz
