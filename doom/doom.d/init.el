@@ -183,5 +183,4 @@
        macos
 
        :private
-       text-extras
-       heb)
+       text-extras)
