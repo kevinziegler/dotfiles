@@ -46,8 +46,9 @@
 (after! kaolin-themes
   (setq kaolin-themes-italic-comments t)
   (setq kaolin-themes-underline-wave nil))
-(after! treemacs (kaolin-treemacs-theme))
-(after! treemacs (setq treemacs-collapse-dirs 7))
+(after! treemacs
+  (setq treemacs-collapse-dirs 7)
+  (kaolin-treemacs-theme))
 (after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
 (after! vterm (setq vterm-shell "/usr/local/bin/zsh"))
 (after! magit (magit-org-todos-autoinsert))
