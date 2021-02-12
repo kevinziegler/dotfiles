@@ -20,7 +20,7 @@ path_additions=(
 );
 
 source_dotfiles=(
-    powerlevel9k.mavam
+    prompt
     aliases
     emacs-vterm
     history

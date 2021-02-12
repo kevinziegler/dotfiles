@@ -1,3 +1,4 @@
+# Based on the 'Mavam' Powerlevel9K theme
 awsvault_prompt() {
     if [ ! -z "${AWS_VAULT-}" ]; then
         echo -n " ${AWS_VAULT-} "
