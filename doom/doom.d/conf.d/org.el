@@ -54,3 +54,5 @@
                 entry
                 (file "~/notes/general.org")
                 "* TODO Discuss in next retro: %?")))
+
+(add-hook 'org-mode-hook #'kdz/writing-fill-column)

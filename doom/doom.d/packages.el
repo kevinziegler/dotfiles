@@ -54,3 +54,6 @@
 (package! ox-gfm)
 (package! git-link)
 (package! org-jira)
+(package! visual-fill-column)
+(package! kaolin-themes)
+(package! magit-org-todos)

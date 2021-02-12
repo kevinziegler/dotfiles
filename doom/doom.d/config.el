@@ -24,64 +24,44 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
-(setq doom-theme 'doom-oceanic-next)
-
-;; TODO: HEB, add projectile default directory
+;;(setq doom-theme 'doom-oceanic-next)
+(setq doom-theme 'kaolin-galaxy)
+(setq doom-themes-treemacs-theme 'kaolin)
 
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
 (setq display-line-numbers-type t)
 
-(after! treemacs (setq treemacs-collapse-dirs 7))
-(after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
-
-(setq magit-git-executable "/usr/local/bin/git"
-      magit-repository-directories
-      '(("~/dev" . 2) ("~/.dotfiles" . 0)))
-
-(after! vterm (setq vterm-shell "/usr/local/bin/zsh"))
-
-;; FIXME: after! block?
-(add-hook 'sh-mode-hook
-          (lambda ()
-            (when (string-match "zshrc$" buffer-file-name)
-                (sh-set-shell "zsh"))))
-
 ;; Set default window size
 (add-to-list 'default-frame-alist '(height . 50))
 (add-to-list 'default-frame-alist '(width . 180))
 
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
-
-;; TODO: Move buffer extras to a module?
-(defun switch-to-message-buffer ()
-    (interactive)
-    (pop-to-buffer "*Messages*"))
-
-(map! :leader
-      (:prefix "b"
-        :desc "Messages" "m" #'switch-to-message-buffer
-        :desc "Copy Buffer" "y" #'copy-whole-buffer))
-
-;; TODO: Add wq command for org-src-mode
-;; TODO: 'add' menu for org under SPC m a
-;; TODO: Minor mode for plantuml live-reload previews?
-
-;; TODO: Move this hydra to a module
-(require 'hydra)
-(defhydra hydra-git-timemachine ()
-  "Git Time Machine"
-  ("b" git-timemachine-blame "Show git blame")
-  ("c" git-timemachine-show-commit "Show commit")
-  ("p" git-timemachine-show-previous-revision "Previous revision")
-  ("n" git-timemachine-show-next-revision "Next revision"))
-(add-hook! git-timemachine-mode #'hydra-git-timemachine/body)
-
+(load! "funcs")
 (load! "conf.d/lsp")
 (load! "conf.d/lsp-java")
 (load! "conf.d/heb")
 (load! "conf.d/keybinds")
 (load! "conf.d/org")
+
+(after! kaolin-themes
+  (setq kaolin-themes-italic-comments t)
+  (setq kaolin-themes-underline-wave nil))
+(after! treemacs (kaolin-treemacs-theme))
+(after! treemacs (setq treemacs-collapse-dirs 7))
+(after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
+(after! vterm (setq vterm-shell "/usr/local/bin/zsh"))
+(after! magit (magit-org-todos-autoinsert))
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+
+;; TODO: HEB, add projectile default directory
+;; TODO: Add wq command for org-src-mode
+;; TODO: 'add' menu for org under SPC m a
+;; TODO: Minor mode for plantuml live-reload previews?
+;; TODO: Set up dedicated notes workspace
+
+(add-hook 'sh-mode-hook #'kdz/set-zshrc-sh-shell)
+;;(add-hook 'markdown-mode-hook #'kdz/writing-fill-column)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
