@@ -93,8 +93,8 @@ brew bundle -f "$DOTFILES/Brewfile";
 echo "Linking Configurations...";
 link_config "zshrc.zsh" ".zshrc";
 link_config "zsh/zshenv.zsh" ".zshenv";
-link_config "gitconfig" ".gitconfig";
-link_config "gitignore_global" ".gitignore_global";
+link_config "git/gitconfig" ".gitconfig";
+link_config "git/gitignore_global" ".gitignore_global";
 link_config "psqlrc" ".psqlrc";
 link_config "myclirc" ".myclirc";
 link_config "doom/doom.d" ".doom.d"
