@@ -27,6 +27,14 @@ GITHUB_DOOM_REPO="hlissner/doom-emacs";
 DOTFILES=$HOME/.dotfiles;
 EMACS="$HOME/.emacs.d";
 
+function link_config() {
+	DOTFILE_PATH="$DOTFILES/$1";
+	CONFIG_FILE="$HOME/$2";
+
+	echo "Linking $CONFIG_FILE ($DOTFILE_PATH)";
+	ln -s "$DOTFILE_PATH" "$HOME/$CONFIG_FILE";
+}
+
 echo "Please enter signin email:";
 read -p "email: " EMAIL;
 
@@ -82,21 +90,18 @@ hub clone "$GITHUB_DOTFILES_REPO" "$DOTFILES";
 echo "Running brew bundle installation...";
 brew bundle -f "$DOTFILES/Brewfile";
 
-echo "Linking zshrc...";
-ln -s "$DOTFILES/zshrc.zsh" "$HOME/.zshrc";
-echo "Linking zshenv...";
-ln -s "$DOTFILES/zsh/zshenv.zsh" "$HOME/.zshenv";
-echo "Linking gitconfig...";
-ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig";
-echo "Linking global gitignore...";
-ln -s "$DOTFILES/gitignore_global" "$HOME/.gitignore_global";
-echo "Linking doom.d...";
-ln -s "$DOTFILES/doom/doom.d" "$HOME/.doom.d";
-echo "Linking Mackup configuration...";
-ln -s "$DOTFILES/mackup.cfg" "~/.mackup.cfg";
+echo "Linking Configurations...";
+link_config "zshrc.zsh" ".zshrc";
+link_config "zsh/zshenv.zsh" ".zshenv";
+link_config "gitconfig" ".gitconfig";
+link_config "gitignore_global" ".gitignore_global";
+link_config "psqlrc" ".psqlrc";
+link_config "myclirc" ".myclirc";
+link_config "doom/doom.d" ".doom.d"
+link_config "mackup.cfg" ".mackup.cfg";
 
 echo "Restoring mackup managed settings...";
-mackup restore
+mackup restore;
 
 echo "Setting up ZSH Plugins...";
 antibody bundle < "$DOTFILES/zsh/plugins.txt" > "$HOME/.plugins.zsh";
