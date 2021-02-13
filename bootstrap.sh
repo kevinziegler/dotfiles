@@ -23,8 +23,10 @@ GITLAB_API_ADD_SSH_KEY="https://gitlab.com/api/v4/user/keys";
 
 # Github repos pulled in as part of setup
 GITHUB_DOTFILES_REPO="kevinziegler/dotfiles";
+GITHUB_DOOM_D_REPO="kevinziegler/doom.d";
 GITHUB_DOOM_REPO="hlissner/doom-emacs";
 DOTFILES=$HOME/.dotfiles;
+DOOM_D="$HOME/.doom.d";
 EMACS="$HOME/.emacs.d";
 
 function link_config() {
