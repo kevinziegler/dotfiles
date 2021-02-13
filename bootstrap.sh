@@ -25,7 +25,7 @@ GITLAB_API_ADD_SSH_KEY="https://gitlab.com/api/v4/user/keys";
 GITHUB_DOTFILES_REPO="kevinziegler/dotfiles";
 GITHUB_DOOM_D_REPO="kevinziegler/doom.d";
 GITHUB_DOOM_REPO="hlissner/doom-emacs";
-DOTFILES=$HOME/.dotfiles;
+DOTFILES="$HOME/.dotfiles";
 DOOM_D="$HOME/.doom.d";
 EMACS="$HOME/.emacs.d";
 
@@ -53,9 +53,6 @@ fi
 
 brew install "${BREW_BOOTSTRAP[@]}";
 brew cask install "${CASK_BOOTSTRAP[@]}";
-
-echo "Cloning dotfiles repository";
-git clone "$DOTFILES_REPOSITORY" "$DOTFILES";
 
 echo "Setting up 1Password...";
 open -a "$(brew info --cask --json=v2 "1password" | jq -r '.casks[0].artifacts[0][0]')";
@@ -87,7 +84,10 @@ curl -X POST \
 	$GITLAB_API_ADD_SSH_KEY;
 
 echo "Cloning dotfiles...";
-hub clone "$GITHUB_DOTFILES_REPO" "$DOTFILES"; 
+hub clone "$GITHUB_DOTFILES_REPO" "$DOTFILES";
+
+echo "Cloning doom.d repository...";
+git clone "$DOOM_D_REPOSITORY" "$DOTFILES";
 
 echo "Running brew bundle installation...";
 brew bundle -f "$DOTFILES/Brewfile";
@@ -97,10 +97,9 @@ link_config "zshrc.zsh" ".zshrc";
 link_config "zsh/zshenv.zsh" ".zshenv";
 link_config "git/gitconfig" ".gitconfig";
 link_config "git/gitignore_global" ".gitignore_global";
-link_config "psqlrc" ".psqlrc";
-link_config "myclirc" ".myclirc";
-link_config "doom/doom.d" ".doom.d"
-link_config "mackup.cfg" ".mackup.cfg";
+link_config "tools/psqlrc" ".psqlrc";
+link_config "tools/myclirc" ".myclirc";
+link_config "system/mackup.cfg" ".mackup.cfg";
 
 echo "Restoring mackup managed settings...";
 mackup restore;
