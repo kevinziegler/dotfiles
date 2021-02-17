@@ -1,7 +1,7 @@
 [user]
 	name = Kevin Ziegler
 [core]
-	excludesfile = ~/.dotfiles/gitignore_global
+	excludesfile = ~/.dotfiles/git/gitignore_global
 	editor = /usr/bin/vim
   pager = delta --dark --plus-color="#012800" --minus-color="#340001" --theme="1337"
 [difftool "sourcetree"]
