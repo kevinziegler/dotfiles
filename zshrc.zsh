@@ -9,6 +9,7 @@ autoloads=(
     emacs-client-editor
     asdf-install
     asdf-add-plugin
+    fzf-repl
 );
 
 path_additions=(

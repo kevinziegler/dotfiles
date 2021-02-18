@@ -4,6 +4,7 @@ alias antibody-reload="antibody bundle < $ZSH_PLUGINS_SOURCE > $ZSH_PLUGINS_BUND
 alias ave="opav exec";
 alias av="opav";
 alias aws-vault="opav";
+alias fr="fzf-repl";
 
 alias tf-browse="terraform state list | fzf --preview 'terraform state show {}'";
 alias tg-browse="terragrunt state list | fzf --preview 'terragrunt state show {}'";
