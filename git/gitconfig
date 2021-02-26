@@ -28,15 +28,13 @@
 	oauth-token = CHANGEME
 
 [color]
-        ui = auto
-
+	ui = auto
 [color "branch"]
-        current = green bold
-
+	current = green bold
 [color "status"]
-        added = green
-        changed = yellow
-        untracked = cyan
+	added = green
+	changed = yellow
+	untracked = cyan
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
