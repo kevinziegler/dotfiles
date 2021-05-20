@@ -1,0 +1,24 @@
+import:
+  - "~/.dotfiles/alacritty/themes/jellybeans.yml"
+
+window:
+  padding:
+    x: 10
+    y: 10
+  decorations: buttonless
+  dynamic_padding: true
+font: 
+  size: 14.0
+  normal: 
+    family: Iosevka Nerd Font
+  use_thin_strokes: true
+shell:
+  #  program: /usr/local/bin/zsh
+  program: /usr/local/bin/tmux
+
+background_opacity: 0.9
+
+cursor:
+  style:
+    shape: Beam
+    blinking: On
