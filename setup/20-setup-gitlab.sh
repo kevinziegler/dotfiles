@@ -1,9 +1,4 @@
-#!/bin/bash
-
-if [ -z $SSH_KEY ]; then
-    echo "SSH_KEY not specified!  Aborting!";
-    exit 1;
-fi
+set -euf -o pipefail;
 
 GITLAB_OP_ITEM="gitlab";
 GITLAB_API_ADD_SSH_KEY="https://gitlab.com/api/v4/user/keys";
@@ -14,3 +9,5 @@ curl -X POST \
 	--data-urlencode "key=$(ssh-keygen -y -f "$SSH_KEY")" \
 	--data-urlencode "title=$(hostname)" \
 	$GITLAB_API_ADD_SSH_KEY;
+
+exit 0;

@@ -1,11 +1,6 @@
-#!/bin/bash
+set -euf -o pipefail;
 
-if [ -z $DOTFILES ]; then
-    echo "No dotfiles repo specified!  Aborting!";
-    exit 1;
-fi
-
-function link_config() {
+function link_config {
 	DOTFILE_PATH="$DOTFILES/$1";
 	CONFIG_FILE="$HOME/$2";
 
@@ -23,3 +18,5 @@ link_config "tools/myclirc" ".myclirc";
 link_config "tools/tmux.conf" ".tmux.conf";
 link_config "system/mackup.cfg" ".mackup.cfg";
 link_config "tools/alacritty/alacritty.yml" ".alacritty.yml";
+
+exit 0;
