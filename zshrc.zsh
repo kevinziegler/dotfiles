@@ -26,7 +26,6 @@ source_dotfiles=(
     emacs-vterm
     history
     vi-cursor
-    emacs
     vivid
 );
 
