@@ -6,7 +6,9 @@ alias av="opav";
 alias aws-vault="opav";
 alias fr="fzf-repl";
 
-alias ls="exa";
-
 alias tf-browse="terraform state list | fzf --preview 'terraform state show {}'";
 alias tg-browse="terragrunt state list | fzf --preview 'terragrunt state show {}'";
+
+# Overriding unit utilities
+alias ls="exa";
+alias cat="bat";
