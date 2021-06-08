@@ -7,6 +7,10 @@ window:
     y: 10
   decorations: buttonless
   dynamic_padding: true
+  dimensions:
+    columns: 150
+    lines: 40
+
 font: 
   size: 13.0
   normal: 
