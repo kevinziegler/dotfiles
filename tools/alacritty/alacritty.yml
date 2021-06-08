@@ -36,6 +36,9 @@ cursor:
     shape: Beam
     blinking: On
 
+mouse:
+  hide_when_typing: true
+
 key_bindings:
   - key: T
     mods: Command
