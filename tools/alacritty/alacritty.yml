@@ -35,3 +35,17 @@ cursor:
   style:
     shape: Beam
     blinking: On
+
+key_bindings:
+  - key: T
+    mods: Command
+    chars: "\x01\x63"
+  - key: D
+    mods: Command
+    chars: "\x01\x76"
+  - key: Q
+    mods: Command
+    chars: "\x01\x51"
+  - key: W
+    mods: Command
+    chars: "\x01\x64"
