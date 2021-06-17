@@ -23,6 +23,8 @@ font:
     family: Iosevka Nerd Font
     style: Light Italic
   use_thin_strokes: true
+  offset:
+    y: 2
 
 shell:
   program: /usr/local/bin/tmux
