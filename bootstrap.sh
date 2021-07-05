@@ -23,7 +23,7 @@ git -C $DOTFILES remote add origin "$DOTFILES_REPO_SSH";
 
 # Run setup scripts
 echo "Bootstrapping complete.  Running setups scripts in $DOTFILES/setup";
-for script in $(ls "$DOTFILES/setup/*.sh"); do
+for script in $DOTFILES/setup/*.sh; do
     echo "[$script] Starting";
     bash $script;
     echo "[$script] Finished";
