@@ -12,3 +12,5 @@ alias tg-browse="terragrunt state list | fzf --preview 'terragrunt state show {}
 # Overriding unit utilities
 alias ls="exa";
 alias cat="bat";
+
+alias listening-ports="sudo lsof -PiTCP -sTCP:LISTEN";
