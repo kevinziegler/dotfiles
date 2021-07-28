@@ -22,9 +22,10 @@ font:
   italic:
     family: Iosevka Nerd Font
     style: Light Italic
-  use_thin_strokes: true
-  offset:
-    y: 2
+  #use_thin_strokes: true
+  # offset:
+  #   y: 2
+  #   x: 1
 
 shell:
   program: /usr/local/bin/tmux
@@ -40,6 +41,14 @@ cursor:
 
 mouse:
   hide_when_typing: true
+
+# hints:
+#   enabled:
+#     - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+#       command: open
+#       post_processing: true
+#       mouse:
+#         enabled: true
 
 key_bindings:
   - key: T
