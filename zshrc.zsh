@@ -53,3 +53,5 @@ fi
 
 for df in $source_dotfiles; do source "$DOTFILES/zsh/$df.zsh"; done
 for sf in $source_optional; do source-optional "$sf"; done
+
+eval "$(direnv hook zsh)";
