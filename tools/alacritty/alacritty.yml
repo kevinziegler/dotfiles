@@ -1,5 +1,5 @@
 import:
-  - "~/.dotfiles/tools/alacritty/themes/jellybeans.yml"
+  - "~/.dotfiles/tools/alacritty/themes/substrate.yml"
 
 window:
   padding:
