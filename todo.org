@@ -1,0 +1,7 @@
+#+TITLE: Dotfiles Repo TODOs
+
+* TODO Test bootstrap.sh
+* TODO Move zshrc under zsh directory
+* TODO Set up FZF-repl helper
+* TODO Setup script for Google Drive
+- Need this for Mackup restore action
