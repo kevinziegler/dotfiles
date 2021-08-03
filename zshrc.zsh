@@ -18,6 +18,7 @@ path_additions=(
     $HOME/.bin
     $HOME/go/bin
     $HOME/.emacs.d/bin
+    $HOME/.dotfiles/bin
 );
 
 source_dotfiles=(
