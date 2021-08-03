@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+brew search '' | grep -v "^==" | fzf --query=$@ --preview="brew info {}";
