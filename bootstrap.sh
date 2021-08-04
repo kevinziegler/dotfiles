@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 set -euf -o pipefail;
 
 # Export config variables needed by setup scripts

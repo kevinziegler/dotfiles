@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 set -euf -o pipefail;
 
 ONEPASSWORD_ADDRESS="my.1password.com";

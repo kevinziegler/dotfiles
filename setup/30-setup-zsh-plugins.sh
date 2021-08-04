@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 set -euf -o pipefail;
 
 antibody bundle < "$DOTFILES/zsh/plugins.txt" > "$HOME/.plugins.zsh";

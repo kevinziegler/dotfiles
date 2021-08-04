@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 set -euf -o pipefail;
 
 BREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh";

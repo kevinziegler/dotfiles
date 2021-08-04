@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 set -euf -o pipefail;
 
 GITHUB_DOOM_D_REPO="kevinziegler/doom.d";

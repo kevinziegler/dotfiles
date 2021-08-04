@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 set -euf -o pipefail;
 
 GH_OP_ITEM="github";
