@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -euf -o pipefail;
+source "$OP_SESSION";
 
 GH_OP_ITEM="github";
 GH_HUB_CONFIG="$HOME/.config/hub";

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -euf -o pipefail;
+source "$OP_SESSION";
 
 GITLAB_OP_ITEM="gitlab";
 GITLAB_API_ADD_SSH_KEY="https://gitlab.com/api/v4/user/keys";

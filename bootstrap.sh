@@ -6,6 +6,7 @@ set -euf -o pipefail;
 export SSH_KEY_TYPE="ed25519";
 export SSH_KEY="$HOME/.ssh/id_$SSH_KEY_TYPE";
 export DOTFILES="$HOME/.dotfiles";
+export OP_SESSION=$(mktemp);
 
 # Add /usr/local/bin to the path so that anything installed via homebrew is
 # available to setup scripts
