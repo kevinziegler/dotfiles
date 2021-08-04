@@ -11,14 +11,14 @@ function link_config {
 }
 
 echo "Linking Configurations...";
-link_config "zshrc.zsh" ".zshrc";
-link_config "zsh/zshenv.zsh" ".zshenv";
 link_config "git/gitconfig" ".gitconfig";
 link_config "git/gitignore_global" ".gitignore_global";
+link_config "system/mackup.cfg" ".mackup.cfg";
+link_config "tools/alacritty/alacritty.yml" ".alacritty.yml";
 link_config "tools/psqlrc" ".psqlrc";
 link_config "tools/myclirc" ".myclirc";
 link_config "tools/tmux.conf" ".tmux.conf";
-link_config "system/mackup.cfg" ".mackup.cfg";
-link_config "tools/alacritty/alacritty.yml" ".alacritty.yml";
+link_config "tools/zsh/zshrc.zsh" ".zshrc";
+link_config "tools/zsh/zshenv.zsh" ".zshenv";
 
 exit 0;
