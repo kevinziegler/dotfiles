@@ -37,7 +37,7 @@ source_optional=(
     $HOME/.p10k.zsh
 );
 
-fpath+="$DOTFILES/zsh/functions";
+fpath+="$DOTFILES/tools/zsh/functions";
 fpath+="/usr/local/share/zsh/site-functions";
 
 prompt_cache="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -52,7 +52,7 @@ if [[ -o interactive ]]; then
     plugin-init "$ZSH_PLUGINS_BUNDLE" "$ZSH_PLUGINS_SOURCE";
 fi
 
-for df in $source_dotfiles; do source "$DOTFILES/zsh/$df.zsh"; done
+for df in $source_dotfiles; do source "$DOTFILES/tools/zsh/$df.zsh"; done
 for sf in $source_optional; do source-optional "$sf"; done
 
 eval "$(direnv hook zsh)";

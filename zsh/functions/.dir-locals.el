@@ -1,1 +1,0 @@
-((nil . ((mode . shell-script))))
