@@ -2,6 +2,6 @@
 
 set -euf -o pipefail;
 
-antibody bundle < "$DOTFILES/zsh/plugins.txt" > "$HOME/.plugins.zsh";
+antibody bundle < "$DOTFILES/tools/zsh/plugins.txt" > "$HOME/.plugins.zsh";
 
 exit 0;
