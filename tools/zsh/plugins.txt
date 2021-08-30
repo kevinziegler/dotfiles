@@ -14,4 +14,4 @@
   hlissner/zsh-autopair
   akoenig/npm-run.plugin.zsh
   Aloxaf/fzf-tab
-  git@gitlab.com:kevinziegler/opav.git
+  kevinziegler/opav
