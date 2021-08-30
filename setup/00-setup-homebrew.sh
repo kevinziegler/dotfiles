@@ -9,6 +9,6 @@ if ! which brew &> /dev/null; then
 	/bin/bash -c "$(curl -fsSl $BREW_URL)";
 fi
 
-brew bundle -f "$DOTFILES/Brewfile";
+brew bundle --file="$DOTFILES/system/Brewfile";
 
 exit 0;
