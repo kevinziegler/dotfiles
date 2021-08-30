@@ -1,50 +1,56 @@
 [user]
-	name = Kevin Ziegler
+  name = Kevin Ziegler
+
 [core]
-	excludesfile = ~/.dotfiles/git/gitignore_global
-	editor = /usr/bin/vim
+  excludesfile = ~/.dotfiles/git/gitignore_global
+  editor = /usr/bin/vim
   pager = delta --dark --plus-color="#012800" --minus-color="#340001" --theme="1337"
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+
 [alias]
-	vlog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	st = status
-	co = checkout
-	ci = commit
+  vlog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  st = status
+  co = checkout
+  ci = commit
   patch = !git --no-pager diff --no-color
   fp = push --force-with-lease
+
 [http]
 	sslVerify = false
+
 [merge]
 	conflictstyle = diff3
-[include]
-  path=.gitconfig.local
+
 [github]
 	user = kevinziegler
 	oauth-token = CHANGEME
 
 [color]
 	ui = auto
+
 [color "branch"]
 	current = green bold
+
 [color "status"]
 	added = green
 	changed = yellow
 	untracked = cyan
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [magithub]
 	online = false
+
 [magithub "status"]
 	includeStatusHeader = false
 	includePullRequestsSection = false
 	includeIssuesSection = false
+
 [pull]
 	rebase = true
+
+[include]
+  path=.gitconfig.local
