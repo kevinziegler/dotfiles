@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+target=$1;
+
+if git -C $target rev-parse --git-dir >/dev/null 2>&1; then
+  basename $(git -C $target rev-parse --show-toplevel);
+else
+  echo $target | \
+    sed "s:$HOME:~:" <<< "$target" | \
+    awk -F'/' '{ for (i=1; i<NF; i++) printf substr($i, 1, ($i ~ /^\./) ? 2 : 1) "/"; print $NF }';
+fi
