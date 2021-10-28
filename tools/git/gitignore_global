@@ -70,4 +70,5 @@ TODOS.org
 flycheck_*
 
 # Personal scratch directory
-kdz
+kdz/
+.kdz/
