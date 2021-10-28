@@ -6,10 +6,10 @@ autoloads=(
     iterm-init
     compinit-refresh
     plugin-init
-    emacs-client-editor
     asdf-install
     asdf-add-plugin
     fzf-repl
+    exa-tree
 );
 
 path_additions=(
