@@ -52,5 +52,8 @@
 [pull]
 	rebase = true
 
+[hub]
+  protocol = git
+
 [include]
   path=~/.gitconfig.local
