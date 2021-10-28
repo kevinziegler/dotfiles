@@ -2,7 +2,7 @@
   name = Kevin Ziegler
 
 [core]
-  excludesfile = ~/.dotfiles/git/gitignore_global
+  excludesfile = ~/.dotfiles/tools/git/gitignore_global
   editor = /usr/bin/vim
   pager = delta --dark --plus-color="#012800" --minus-color="#340001" --theme="1337"
 
