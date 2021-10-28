@@ -7,3 +7,4 @@ export FZF_DEFAULT_OPTS="--prompt='➜ ' --pointer='‣' --marker='•' $FZF_JEL
 export EDITOR="emacs-client-editor";
 export ALTERNATE_EDITOR="vim";
 export CLICOLOR=1;
+export PSPG="--style=22";
