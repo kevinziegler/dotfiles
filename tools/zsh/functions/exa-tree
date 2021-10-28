@@ -1,0 +1,8 @@
+exa-tree() {
+    exa \
+        -alT \
+        --git \
+        -I'.git|node_modules|.mypy_cache|.pytest_cache|.venv' \
+        --color=always "$@" \
+    | less -R;
+}
