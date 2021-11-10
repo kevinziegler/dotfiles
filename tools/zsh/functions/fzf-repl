@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 function fzf-repl() {
   echo '' | fzf --print-query --preview-window="top:99%" --preview $@
 }
