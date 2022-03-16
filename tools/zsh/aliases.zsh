@@ -13,3 +13,5 @@ alias tg-browse="terragrunt state list | fzf --preview 'terragrunt state show {}
 # Overriding unix utilities
 alias ls="exa";
 alias cat="bat";
+
+alias csv="pspg --csv --csv-header on";
