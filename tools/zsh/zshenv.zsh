@@ -8,3 +8,6 @@ export EDITOR="ec";
 export ALTERNATE_EDITOR="vim";
 export CLICOLOR=1;
 export PSPG="--style=22";
+export MCFLY_KEY_SCHEME="vim";
+export MCFLY_FUZZY=2;
+export MCFLY_RESULTS=25;

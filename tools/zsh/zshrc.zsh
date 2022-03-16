@@ -1,5 +1,4 @@
 autoloads=(
-    history-fzf
     vterm_printf
     vterm_prompt_end
     source-optional
@@ -25,7 +24,6 @@ source_dotfiles=(
     prompt
     aliases
     emacs-vterm
-    history
     vi-cursor
     vivid
 );
@@ -56,3 +54,4 @@ for df in $source_dotfiles; do source "$DOTFILES/tools/zsh/$df.zsh"; done
 for sf in $source_optional; do source-optional "$sf"; done
 
 eval "$(direnv hook zsh)";
+eval "$(mcfly init zsh)";
