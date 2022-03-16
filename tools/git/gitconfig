@@ -4,7 +4,7 @@
 [core]
   excludesfile = ~/.dotfiles/tools/git/gitignore_global
   editor = /usr/bin/vim
-  pager = delta --dark --plus-color="#012800" --minus-color="#340001" --theme="1337"
+  pager = delta --dark 
 
 [alias]
   vlog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
