@@ -4,3 +4,17 @@
 * TODO Set up FZF-repl helper
 * TODO Setup script for Google Drive
 - Need this for Mackup restore action
+* TODO Bootstrap Improvements
+- [X] Setup all-the-icons in doom (install fonts)
+- [ ] Setup TPM/Install plugins
+- [ ] Fix 1-password environment sourcing
+- [ ] Sign in to app store before brew bundle
+- [ ] Setup Alfred Powerpack
+- [ ] Manage Alfred workflows/settings
+- [ ] Update keyboard shortcuts for Spotlight/Alfred
+- [ ] Setup GPG key for Github
+- [ ] Setup ASDF with common tools in their latest versions
+  + Install plugins
+  + Figure out
+  + [ ] Python
+  + [ ] NodeJS (Especially for emacs lang servers)
