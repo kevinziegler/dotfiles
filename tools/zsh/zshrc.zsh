@@ -31,9 +31,17 @@ source_dotfiles=(
 source_optional=(
     $HOME/.local.zsh
     $HOME/.fzf.zsh
-    $HOMEBREW_PREFIX/opt/asdf/asdf.sh
+    /usr/local/opt/asdf/asdf.sh
     $HOME/.p10k.zsh
 );
+
+if [ -z "$HOMEBREW_PREFIX" ]; then
+    if [ $(uname -m) = "x86_64" ]; then
+        export HOMEBREW_PREFIX="/usr/local";
+    else
+        export HOMEBREW_PREFIX="/opt/homebrew/";
+    fi
+fi
 
 fpath+="$DOTFILES/tools/zsh/functions";
 fpath+="$HOMEBREW_PREFIX/share/zsh/site-functions";
