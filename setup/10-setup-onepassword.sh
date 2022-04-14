@@ -9,7 +9,7 @@ echo "Waiting for you to sign into the 1Password Application...press <ENTER> to 
 read;
 
 read -p "\tPlease enter your OnePassword Email:" ONEPASSWORD_EMAIL;
-op signin "$ONEPASSWORD_ADDRESS" "$ONEPASSWORD_EMAIL" > "$OP_SESSION";
-echo "Signed into 1Password via the command line!"
+op account add --address "$ONEPASSWORD_ADDRESS" --email "$ONEPASSWORD_EMAIL";
+echo "Added 1Password Account to via command line";
 
 exit 0;

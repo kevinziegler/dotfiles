@@ -3,12 +3,13 @@
 set -euf -o pipefail;
 source "$OP_SESSION";
 
+eval $(op signin);
 export GH_OP_ITEM="github";
 export GH_HUB_CONFIG="$HOME/.config/hub";
 export GH_SSHKEY_NAME="dotfiles-bootstrap-hostname";
 export GH_SSHKEY="$(ssh-keygen -y -f "$SSH_KEY")";
-export GITHUB_TOKEN=$(op get item "$GH_OP_ITEM" --fields "Hub Access Token");
-export GITHUB_USER=$(op get item "$GH_OP_ITEM" --fields "username");
+export GITHUB_TOKEN=$(op item get "$GH_OP_ITEM" --fields "Hub Access Token");
+export GITHUB_USER=$(op item get "$GH_OP_ITEM" --fields "username");
 
 echo "Setting up hub client for Github...";
 
