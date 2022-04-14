@@ -8,9 +8,9 @@ export SSH_KEY="$HOME/.ssh/id_$SSH_KEY_TYPE";
 export DOTFILES="$HOME/.dotfiles";
 export OP_SESSION=$(mktemp);
 
-# Add /usr/local/bin to the path so that anything installed via homebrew is
-# available to setup scripts
-export PATH=$PATH:/usr/local/bin;
+# Add /usr/local/bin and /opt/homebrew/bin to the path so that anything
+# installed via homebrew is available to setup scripts
+export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin;
 
 # Config values only needed for bootstrapping
 DOTFILES_REPO="kevinziegler/dotfiles.git";
