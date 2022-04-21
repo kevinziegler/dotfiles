@@ -1,3 +1,12 @@
+
+if [ -z "$HOMEBREW_PREFIX" ]; then
+    if [ $(uname -m) = "x86_64" ]; then
+        export HOMEBREW_PREFIX="/usr/local";
+    else
+        export HOMEBREW_PREFIX="/opt/homebrew/";
+    fi
+fi
+
 autoloads=(
     vterm_printf
     vterm_prompt_end
@@ -12,12 +21,12 @@ autoloads=(
 );
 
 path_additions=(
-    /usr/local/sbin
-    /usr/local/bin
     $HOME/.bin
     $HOME/go/bin
     $HOME/.emacs.d/bin
     $HOME/.dotfiles/bin
+    $HOMEBREW_PREFIX/bin
+    $HOMEBREW_PREFIX/sbin
 );
 
 source_dotfiles=(
@@ -29,19 +38,12 @@ source_dotfiles=(
 );
 
 source_optional=(
+    $HOMEBREW_PREFIX/opt/asdf/asdf.sh
+    $HOMEBREW_PREFIX/etc/profile.d/z.sh
     $HOME/.local.zsh
     $HOME/.fzf.zsh
-    /usr/local/opt/asdf/asdf.sh
     $HOME/.p10k.zsh
 );
-
-if [ -z "$HOMEBREW_PREFIX" ]; then
-    if [ $(uname -m) = "x86_64" ]; then
-        export HOMEBREW_PREFIX="/usr/local";
-    else
-        export HOMEBREW_PREFIX="/opt/homebrew/";
-    fi
-fi
 
 fpath+="$DOTFILES/tools/zsh/functions";
 fpath+="$HOMEBREW_PREFIX/share/zsh/site-functions";
