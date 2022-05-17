@@ -1,7 +1,7 @@
 ### Custom key bindings
-bindkey '^r' history-fzf
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# bindkey '^r' history-fzf
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 
 ### History Settings
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -22,4 +22,4 @@ else
 fi
 SAVEHIST=10000
 
-zle -N history-fzf
+# zle -N history-fzf
