@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Use this script instead of a straight symlink to work around issues finding
+# QT on MacOS.
+
+/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD $*
