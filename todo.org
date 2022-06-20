@@ -18,3 +18,14 @@
   + Figure out
   + [ ] Python
   + [ ] NodeJS (Especially for emacs lang servers)
+
+* Dotdrop System Setup
+** TODO Fix Alfred to load brew-installed apps
+** TODO Automate Google Signin to Firefox
+*Tried this via Selenium*, but can't sign into google with the automated browser (controlled by ~--marionette~); this appears to be a security feature on Google's end.
+- Consider: spoofing the User agent string?
+** TODO Automate Signin to Firefox Account
+** TODO Add SSH Key in Gitlab
+** TODO Set up licensed applications
+- Fantastical
+- Alfred
