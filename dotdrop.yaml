@@ -1,0 +1,159 @@
+config:
+  dotpath: ~/.dotfiles
+  link_dotfile_default: relative
+  import_variables:
+    - 'uservariables.yaml:optional'
+
+profiles:
+  dev_system:
+    include:
+      - identity
+      - tools
+  identity:
+    dotfiles:
+      - ssh_key
+      - gpg_key_batch
+
+  tools:
+    dotfiles:
+      - gitconfig
+      - gitignore_global
+      - gitconfig_local
+      - hub
+      - myclirc
+      - pgcli_config
+      - psqlrc
+      - zshrc
+      - zshenv
+      - zsh_plugins
+      - doom_emacs_config
+      - doom_emacs
+      - finickyjs
+      - mackup_cfg
+
+dotfiles:
+  mackup_cfg:
+    src: system/mackup.cfg
+    dst: ~/.mackup.cfg
+    actions:
+      - mackup_restore
+
+  myclirc:
+    src: tools/myclirc
+    dst: ~/.myclirc
+
+  pgcli_config:
+    src: tools/pgcli.toml
+    dst: ~/.config/pgcli/config
+
+  psqlrc:
+    src: tools/psqlrc
+    dst: ~/.psqlrc
+
+  doom_emacs_config:
+    src: remotes/doom.d
+    dst: ~/.doom.d
+    link: nolink
+    trans_read: clone_remote
+
+  doom_emacs:
+    src: remotes/emacs.d
+    dst: ~/.emacs.d
+    link: nolink
+    trans_read: clone_remote
+    actions:
+      - emacs_install_doom
+      - emacs_install_icons
+
+  gitconfig:
+    src: tools/git/gitconfig
+    dst: ~/.gitconfig
+
+  gitconfig_local:
+    src: tools/git/gitconfig.local.tmpl
+    dst: ~/.gitconfig.local
+    link: nolink
+
+  gitignore_global:
+    src: tools/git/gitignore_global
+    dst: ~/.gitignore_global
+
+  hub:
+    src: tools/hub.tmpl.yaml
+    dst: ~/.config/hub
+    template: false
+    link: nolink
+    trans_read: op_inject
+    actions:
+      - add_github_ssh_key
+
+  ssh_key:
+    src: "{{@@ null_src @@}}"
+    dst: "{{@@ ssh_key_file @@}}"
+    trans_read: "generate_ssh_key"
+
+  gpg_key_batch:
+    src: gpg-batch.tmpl
+    dst: ~/.gnupg/pgp-batch
+    actions:
+      - generate_gpg_key
+
+  zshenv:
+    src: tools/zsh/zshenv.zsh
+    dst: ~/.zshenv
+
+  zshrc:
+    src: tools/zsh/zshrc.zsh
+    dst: ~/.zshrc
+
+  zsh_plugins:
+    src: tools/zsh/plugins.txt
+    dst: ~/.plugins.zsh
+    link: nolink
+    trans_read: antibody_bundle
+
+  finickyjs:
+    src: tools/finicky.js
+    dst: ~/.finicky.js
+    actions:
+      - launch_finicky
+
+variables:
+  ssh_key_type: "ed25519"
+  ssh_key_file: "~/.ssh/id_{{@@ ssh_key_type @@}}"
+  ssh_public_key_file: "{{@@ ssh_key_file @@}}.pub"
+
+uservariables:
+  personal_email: "Personal Email"
+  onepassword_address: "1Password Address (e.g. foo.1password.com)"
+  system_email: "System Email"
+  system_comment: "System Comment (e.g. Work Laptop)"
+
+dynvariables:
+  # Create a temporary file for instances where we want to populate
+  # source/destination values for a dotfile, but want to use (for example) a
+  # trans_read block to generate the dotfile
+  null_src: mktemp
+
+  # Get a 1Password session token to allow injecting secrets kept in 1Password
+  onepassword_session: op signin --account {{@@ onepassword_address @@}} --raw
+  dotfiles_ssh_remote: git remote get-url origin | sed 's|http://github.com/|git@github.com|'
+
+trans_read:
+  asdf_set_latest: "<{0} xargs -L1 -I@ bash -c 'echo -n \"@ \" && asdf latest @' > {1}"
+  clone_remote: "<{0} xargs -I@ git clone @ {1}"
+  op_inject: "op inject --session {{@@ onepassword_session @@}} --in-file {0} --out-file {1}"
+  generate_ssh_key: "ssh-keygen -t {{@@ ssh_key_type @@}} -C {{@@ system_email @@}} -f {1}"
+  antibody_bundle: "antibody bundle < {0} > {1}"
+
+actions:
+  mackup_restore: mackup restore
+  emacs_install_doom: "{{@@ _dotfile_sub_abs_dst @@}}/bin/doom install"
+  emacs_install_icons: emacs --eval '(all-the-icons-install-fonts t)' --kill --user ~
+  add_github_ssh_key: >-
+    hub api user/keys \
+    --field title="{{@@ system_comment @@}} - {{@@github_ssh_key_name@@}}" \
+    --field key=`ssh-keygen -y -f {{@@ ssh_key_file @@}}`
+  generate_gpg_key: ssh-keygen --batch --generate-key {1}
+  # On launch, Finicky will prompt to set itself as the default browser
+  launch_finicky: open -a /Applications/Finicky.app

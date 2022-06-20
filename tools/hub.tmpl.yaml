@@ -1,0 +1,4 @@
+github.com:
+  - username: {{ op://Personal/Github/Username }}
+    oauth_token: {{ op://Personal/Github/Hub Access Token }}
+    protocol: https
