@@ -97,7 +97,6 @@ brew "poppler"
 brew "postgresql"
 brew "pspg"
 brew "pstree"
-brew "ptpython"
 brew "px"
 brew "pyenv"
 brew "ranger"
@@ -140,6 +139,7 @@ cask "caffeine"
 cask "dash"
 cask "docker"
 cask "dozer"
+cask "fantastical"
 cask "finicky"
 cask "firefox"
 cask "font-fira-code"
@@ -175,9 +175,3 @@ cask "stats"
 cask "visual-studio-code"
 cask "warp"
 cask "yippy"
-mas "Amphetamine", id: 937984704
-mas "Divvy", id: 413857545
-mas "Jira", id: 1475897096
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
