@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+REPOSITORY_PATH="$1";
+REMOTE_NAME="$2";
+REMOTE_URL="$(git -C "${REPOSITORY_PATH}" remote get-url "${REMOTE_NAME}")";
+
+if [[ ${REMOTE_URL} =~ ^git@ ]]; then
+    echo "Origin (${REMOTE_URL}) appears to already be an SSH remote URL.  Exiting.";
+    exit 0;
+elif [[ ! ${REMOTE_URL} =~ ^https:// ]]; then
+    echo "Could not identify HTTPS URL scheme.  Exiting.";
+    exit 1;
+fi
+
+SSH_URL=$(sed -r 's:https\://([^/]+)/(.*\.git):git@\1\:\2:g' <<< $REMOTE_URL);
+echo "Updating URL for ${REMOTE_NAME} at ${REPOSITORY_PATH}:";
+echo "\tFrom: ${REMOTE_URL}";
+echo "\t  To: ${SSH_URL}";
+
+git remote set-url "${REMOTE_NAME}" "${SSH_URL}";
