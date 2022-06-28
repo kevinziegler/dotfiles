@@ -1,0 +1,4 @@
+# Allow access to SSH keys stored in 1Password for github
+# NOTE: This is a 'generic' config depsite the odd string of letters/numbers
+Host github.com
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
