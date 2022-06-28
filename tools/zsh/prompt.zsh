@@ -20,6 +20,9 @@ typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
 typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     command_execution_time
     vcs
+    aws
+    kubecontext
+    " "
     background_jobs_joined
     time_joined
 )
@@ -85,3 +88,5 @@ typeset -g POWERLEVEL9K_CUSTOM_AWSVAULT_FOREGROUND="red";
 typeset -g POWERLEVEL9K_CUSTOM_AWSVAULT_VISUAL_IDENTIFIER_EXPANSION='';
 
 typeset -g POWERLEVEL9K_ASDF_FOREGROUND="grey";
+
+typeset -g POWERLEVEL9K_KUBECONTEXT_BACKGROUND="clear";
