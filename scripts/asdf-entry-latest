@@ -1,0 +1,7 @@
+#! /usr/bin/env zsh
+
+# Simple helper to take an ASDF plugin and generate an entry for a tool-versions
+# file specifying the latest version of that plugin.
+
+plugin="${1}";
+echo "${plugin} $(asdf latest ${plugin})";
