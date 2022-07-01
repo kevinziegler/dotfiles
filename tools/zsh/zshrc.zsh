@@ -14,8 +14,6 @@ autoloads=(
     iterm-init
     compinit-refresh
     plugin-init
-    asdf-install
-    asdf-add-plugin
     fzf-repl
     exa-tree
 );

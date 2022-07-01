@@ -1,5 +1,0 @@
-function asdf-install() {
-    local plugin=$1;
-    [[ -z "$plugin" ]] && plugin=$(asdf plugin list | fzf);
-    asdf install $plugin $(asdf list all "$plugin" | fzf);
-}
