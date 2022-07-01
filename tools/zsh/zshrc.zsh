@@ -44,6 +44,7 @@ source_optional=(
     $HOME/.local.zsh
     $HOME/.fzf.zsh
     $HOME/.p10k.zsh
+    $HOME/.iterm2_shell_integration.zsh
 );
 
 fpath+="$DOTFILES/tools/zsh/functions";
