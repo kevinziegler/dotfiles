@@ -58,3 +58,8 @@
 
 [include]
   path=~/.gitconfig.local
+
+# Make diffs for org-files more usable by indicating the parent heading for the
+# change
+[diff "org"]
+  xfuncname = "^(\\*+ +.*)$"
