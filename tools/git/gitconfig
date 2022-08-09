@@ -13,6 +13,8 @@
   ci = commit
   patch = !git --no-pager diff --no-color
   fp = push --force-with-lease
+  f  = fetch
+  fa = fetch --all
 
 [http]
 	sslVerify = false
