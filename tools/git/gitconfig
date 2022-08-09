@@ -22,7 +22,6 @@
 
 [github]
 	user = kevinziegler
-	oauth-token = CHANGEME
 
 [color]
 	ui = auto
