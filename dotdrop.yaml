@@ -2,68 +2,87 @@ config:
   dotpath: ~/.dotfiles
   link_dotfile_default: relative
   import_variables:
-    - 'uservariables.yaml:optional'
+    - "uservariables.yaml:optional"
 
 profiles:
-  dev_system:
-    include:
-      - identity
-      - tools
+  system:
+    dotfiles:
+      - brewfile
+      - tool_versions
+      - dotfiles_remote
+
+  applications:
+    dotfiles:
+      - onepassword
+      - finickyjs
+
   identity:
     dotfiles:
-      - ssh_key
-      - gpg_key_batch
+      - ssh_config
+      - gpg_identity
 
-  tools:
+  git:
     dotfiles:
       - gitconfig
       - gitignore_global
       - gitconfig_local
+      - git_attributes
       - hub
-      - myclirc
-      - pgcli_config
-      - psqlrc
+
+  zsh:
+    dotfiles:
       - zshrc
       - zshenv
       - zsh_plugins
-      - doom_emacs_config
+
+  emacs:
+    dotfiles:
       - doom_emacs
-      - finickyjs
+      - doom_emacs_local
+
+  misc:
+    dotfiles:
+      - myclirc
+      - pgcli_config
+      - psqlrc
       - mackup_cfg
 
+  test:
+    dotfiles:
+      - finickyjs
+    dynvariables:
+      op_session: "echo FOOBAR"
+
 dotfiles:
-  mackup_cfg:
-    src: system/mackup.cfg
-    dst: ~/.mackup.cfg
+  brewfile:
+    src: system/Brewfile
+    dst: ~/.Brewfile
     actions:
-      - mackup_restore
-
-  myclirc:
-    src: tools/myclirc
-    dst: ~/.myclirc
-
-  pgcli_config:
-    src: tools/pgcli.toml
-    dst: ~/.config/pgcli/config
-
-  psqlrc:
-    src: tools/psqlrc
-    dst: ~/.psqlrc
-
-  doom_emacs_config:
-    src: remotes/doom.d
-    dst: ~/.doom.d
-    link: nolink
-    trans_read: clone_remote
+      - install_homebrew
+      - brew_bundle
 
   doom_emacs:
-    src: remotes/emacs.d
-    dst: ~/.emacs.d
-    link: nolink
-    trans_read: clone_remote
+    src:
+    dst:
     actions:
-      - emacs_install_doom
-      - emacs_install_icons
+      - setup_emacs
+
+  doom_emacs_local:
+    src: tools/doom-local.tmpl.el
+    dst: ~/.doom.d/conf.d/local.el
+    link: nolink
+
+  dotfiles_remote:
+    src:
+    dst:
+    actions:
+      - dotfiles_set_ssh_url
+
+  finickyjs:
+    src: tools/finicky.js
+    dst: ~/.finicky.js
+    actions:
+      - set_default_browser
 
   gitconfig:
     src: tools/git/gitconfig
@@ -78,25 +97,58 @@ dotfiles:
     src: tools/git/gitignore_global
     dst: ~/.gitignore_global
 
+  git_attributes:
+    src: tools/git/attributes
+    dst: ~/.config/git/attributes
+
+  # TODO Test me!
+  gpg_identity:
+    src:
+    dst:
+    actions:
+      - import_gpg_key
+
   hub:
     src: tools/hub.tmpl.yaml
     dst: ~/.config/hub
     template: false
     link: nolink
     trans_read: op_inject
-    actions:
-      - add_github_ssh_key
 
-  ssh_key:
-    src: "{{@@ null_src @@}}"
-    dst: "{{@@ ssh_key_file @@}}"
-    trans_read: "generate_ssh_key"
+  mackup_cfg:
+    src: system/mackup.cfg
+    dst: ~/.mackup.cfg
 
-  gpg_key_batch:
-    src: gpg-batch.tmpl
-    dst: ~/.gnupg/pgp-batch
+  myclirc:
+    src: tools/myclirc
+    dst: ~/.myclirc
+
+  onepassword:
+    src:
+    dst:
     actions:
-      - generate_gpg_key
+      - init_1password_app
+      - init_1password_cli
+
+  pgcli_config:
+    src: tools/pgcli.toml
+    dst: ~/.config/pgcli/config
+
+  psqlrc:
+    src: tools/psqlrc
+    dst: ~/.psqlrc
+
+  ssh_config:
+    src: tools/ssh_config
+    dst: ~/.ssh/config
+
+  tool_versions:
+    src: "{{@@ tool_versions_src @@}}"
+    dst: ~/.tool-versions
+    link: nolink
+    trans_read: asdf_config_latest
+    actions:
+      - asdf_install
 
   zshenv:
     src: tools/zsh/zshenv.zsh
@@ -112,48 +164,36 @@ dotfiles:
     link: nolink
     trans_read: antibody_bundle
 
-  finickyjs:
-    src: tools/finicky.js
-    dst: ~/.finicky.js
-    actions:
-      - launch_finicky
+uservariables:
+  system_email: "System email (e.g. your work email)"
+
+# TODO Make this work with "bootstrap" profiles?
+dynvariables:
+  op_session: "op signin --account {{@@ op_alias @@}} --raw"
 
 variables:
-  ssh_key_type: "ed25519"
-  ssh_key_file: "~/.ssh/id_{{@@ ssh_key_type @@}}"
-  ssh_public_key_file: "{{@@ ssh_key_file @@}}.pub"
-
-uservariables:
-  personal_email: "Personal Email"
-  onepassword_address: "1Password Address (e.g. foo.1password.com)"
-  system_email: "System Email"
-  system_comment: "System Comment (e.g. Work Laptop)"
-
-dynvariables:
-  # Create a temporary file for instances where we want to populate
-  # source/destination values for a dotfile, but want to use (for example) a
-  # trans_read block to generate the dotfile
-  null_src: mktemp
-
-  # Get a 1Password session token to allow injecting secrets kept in 1Password
-  onepassword_session: op signin --account {{@@ onepassword_address @@}} --raw
-  dotfiles_ssh_remote: git remote get-url origin | sed 's|http://github.com/|git@github.com|'
+  scripts: "{{@@ _dotdrop_dotpath @@}}/scripts"
+  op_alias: "personal"
+  op_setup_file: "/Volumes/BOOTSTRAP/onepassword-setup.txt"
+  op_gpg_item: "Personal GPG Identity"
+  tool_versions_src: "system/tool-versions"
 
 trans_read:
-  asdf_set_latest: "<{0} xargs -L1 -I@ bash -c 'echo -n \"@ \" && asdf latest @' > {1}"
-  clone_remote: "<{0} xargs -I@ git clone @ {1}"
-  op_inject: "op inject --session {{@@ onepassword_session @@}} --in-file {0} --out-file {1}"
-  generate_ssh_key: "ssh-keygen -t {{@@ ssh_key_type @@}} -C {{@@ system_email @@}} -f {1}"
+  asdf_config_latest: "<{0} xargs -L1 {{@@ scripts @@}}/asdf-entry-latest >> {1}"
+  op_inject: "op inject --session {{@@ op_session @@}} --in-file {0} --out-file {1}"
   antibody_bundle: "antibody bundle < {0} > {1}"
 
 actions:
-  mackup_restore: mackup restore
-  emacs_install_doom: "{{@@ _dotfile_sub_abs_dst @@}}/bin/doom install"
-  emacs_install_icons: emacs --eval '(all-the-icons-install-fonts t)' --kill --user ~
-  add_github_ssh_key: >-
-    hub api user/keys \
-    --field title="{{@@ system_comment @@}} - {{@@github_ssh_key_name@@}}" \
-    --field key=`ssh-keygen -y -f {{@@ ssh_key_file @@}}`
-  generate_gpg_key: ssh-keygen --batch --generate-key {1}
-  # On launch, Finicky will prompt to set itself as the default browser
-  launch_finicky: open -a /Applications/Finicky.app
+  pre:
+    asdf_init_plugins: "asdf plugin update --all && <{{@@ dotdrop_dotpath @@}}/{{@@ tool_versions_src @@}} xargs -L1 asdf plugin add"
+    install_homebrew: "{{@@ scripts @@}}/install-homebrew"
+  post:
+    asdf_install: "asdf install"
+    brew_bundle: "brew bundle --global"
+    mackup_restore: "mackup restore"
+    setup_emacs: "{{@@ scripts @@}}/setup-emacs"
+    set_default_browser: "defaultbrowser finicky"
+    dotfiles_set_ssh_url: "{{@@ scripts @@}}/set-git-ssh-remote {{@@ _dotdrop_dotpath @@}} origin"
+    init_1password_app: "{{@@ scripts @@}}/init-1password-app {{@@ op_setup_file @@}}"
+    init_1password_cli: "{{@@ scripts @@}}/init-1password-cli {{@@ op_alias @@}} {{@@ op_setup_file @@}}"
+    import_gpg_key: "{{@@ scripts @@}}/import-gpg-key"
