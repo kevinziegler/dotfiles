@@ -18,15 +18,6 @@ autoloads=(
     exa-tree
 );
 
-path_additions=(
-    $HOME/.bin
-    $HOME/go/bin
-    $HOME/.emacs.d/bin
-    $HOME/.dotfiles/bin
-    $HOMEBREW_PREFIX/bin
-    $HOMEBREW_PREFIX/sbin
-);
-
 source_dotfiles=(
     prompt
     aliases
@@ -52,7 +43,6 @@ prompt_cache="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh
 [[ -r $prompt_cache ]] && source $prompt_cache;
 
 autoload -Uz $autoloads;
-export PATH=${(j-:-)path_additions}:$PATH;
 
 if [[ -o interactive ]]; then
     iterm-init;

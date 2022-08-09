@@ -11,3 +11,14 @@ export PSPG="--style=22";
 export MCFLY_KEY_SCHEME="vim";
 export MCFLY_FUZZY=2;
 export MCFLY_RESULTS=25;
+
+path_additions=(
+    $HOME/.bin
+    $HOME/go/bin
+    $HOME/.emacs.d/bin
+    $HOME/.dotfiles/bin
+    $HOMEBREW_PREFIX/bin
+    $HOMEBREW_PREFIX/sbin
+);
+
+export PATH=${(j-:-)path_additions}:$PATH;
