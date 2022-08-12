@@ -1,0 +1,25 @@
+#!/usr/bin/env expect
+
+# Get a 1Password session token by using an account name/password supplied via
+# environment variables.
+#
+# This is meant to be used in places where I'd want to ingest a password from
+# some other source (e.g. by reading input in an elisp function or in a script)
+# rather than direct input on the command line.
+
+if  { ![info exists ::env(OP_SIGNIN_ACCOUNT)] } {
+    puts "ERROR: OP_SIGNIN_ACCOUNT is not set"
+    exit 1
+}
+
+if  { ![info exists ::env(OP_SIGNIN_PASSWORD)] } {
+    puts "ERROR: OP_SIGNIN_PASSWORD is not set"
+    exit 1
+}
+
+log_user 0
+spawn op signin --account $env(OP_SIGNIN_ACCOUNT) --force --raw
+expect "Enter the password for *: "
+send -- "$env(OP_SIGNIN_PASSWORD)\r"
+log_user 1
+expect eof
