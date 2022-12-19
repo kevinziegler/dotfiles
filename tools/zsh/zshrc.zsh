@@ -37,7 +37,6 @@ source_optional=(
 );
 
 fpath+="$DOTFILES/tools/zsh/functions";
-fpath+="$HOMEBREW_PREFIX/share/zsh/site-functions";
 
 prompt_cache="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh";
 [[ -r $prompt_cache ]] && source $prompt_cache;
