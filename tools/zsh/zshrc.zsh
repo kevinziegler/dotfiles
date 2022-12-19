@@ -55,5 +55,6 @@ for sf in $source_optional; do source-optional "$sf"; done
 eval "$(direnv hook zsh)";
 eval "$(mcfly init zsh)";
 eval "$(op completion zsh)";
+eval "$(kubecm completion zsh)";
 
 compdef _op op;
