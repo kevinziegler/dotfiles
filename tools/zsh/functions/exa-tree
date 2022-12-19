@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 exa-tree() {
     exa \
         -alT \

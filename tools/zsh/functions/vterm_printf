@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 function vterm_printf(){
     if [ -n "$TMUX" ]; then
         # Tell tmux to pass the escape sequences through

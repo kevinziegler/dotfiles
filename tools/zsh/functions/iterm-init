@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 function iterm-init() {
     if [[ -s $HOME/.iterm2_shell_integration.zsh && $TERM_PROGRAM =~ iTerm ]]; then
         source $HOME/.iterm2_shell_integration.zsh

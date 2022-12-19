@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 
 if [ -z "$HOMEBREW_PREFIX" ]; then
     if [ $(uname -m) = "x86_64" ]; then

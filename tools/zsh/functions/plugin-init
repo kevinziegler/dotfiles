@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 function plugin-init() {
     local bundle=$1
     local manifest=$2
