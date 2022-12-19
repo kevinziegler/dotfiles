@@ -14,5 +14,4 @@ romkatv/powerlevel10k.git
 hlissner/zsh-autopair
 akoenig/npm-run.plugin.zsh
 Aloxaf/fzf-tab
-jeffreytse/zsh-vi-mode
 mattmc3/zman
