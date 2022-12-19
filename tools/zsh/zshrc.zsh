@@ -28,7 +28,7 @@ source_dotfiles=(
 );
 
 source_optional=(
-    $HOMEBREW_PREFIX/opt/asdf/asdf.sh
+    $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
     $HOMEBREW_PREFIX/etc/profile.d/z.sh
     $HOME/.local.zsh
     $HOME/.fzf.zsh
