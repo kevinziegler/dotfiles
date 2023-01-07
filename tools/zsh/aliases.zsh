@@ -15,3 +15,5 @@ alias ls="exa";
 alias cat="bat";
 
 alias csv="pspg --csv --csv-header on";
+
+alias nuke="rm -rf";
