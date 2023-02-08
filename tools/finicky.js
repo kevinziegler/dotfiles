@@ -1,3 +1,7 @@
+function openInFirefoxContainer(containerName, urlString) {
+  return `ext+container:name=${containerName}&url=${encodeURIComponent(urlString)}`;
+}
+
 module.exports = {
     defaultBrowser: "Firefox",
     handlers: [
