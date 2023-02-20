@@ -26,7 +26,7 @@ profiles:
       - gitconfig
       - gitignore_global
       - gitconfig_local
-      - git_attributes
+      - gitattributes
       - hub
 
   zsh:
