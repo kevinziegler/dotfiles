@@ -23,3 +23,5 @@ alias gb="gitbatch -r 5";
 # Overriding unix utilities
 alias ls="exa";
 alias cat="bat";
+
+alias private-session="fc -p";
