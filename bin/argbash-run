@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+#
+
+ARGBASH_IMAGE="matejak/argbash";
+
+action="${1}";
+shift;
+
+case "${action}" in
+    init)
+        argbash_program="argbash-init";
+        ;;
+    build)
+        argbash_program="argbash";
+        ;;
+    *)
+        echo "Unrecognized action: ${action}";
+        exit 1;
+        ;;
+esac
+
+docker run \
+    --rm \
+    --env PROGRAM=${argbash_program} \
+    --volume ${script_dir}:/work \
+    --user "${argbash_user}" \
+    "${ARGBASH_IMAGE}" \
+    ${@};
