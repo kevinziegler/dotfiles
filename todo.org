@@ -15,17 +15,53 @@
 - [ ] Setup GPG key for Github
 - [ ] Setup ASDF with common tools in their latest versions
   + Install plugins
-  + Figure out
   + [ ] Python
   + [ ] NodeJS (Especially for emacs lang servers)
 
 * Dotdrop System Setup
 ** TODO Fix Alfred to load brew-installed apps
+- Only for M1 macs?
 ** TODO Automate Google Signin to Firefox
 *Tried this via Selenium*, but can't sign into google with the automated browser (controlled by ~--marionette~); this appears to be a security feature on Google's end.
 - Consider: spoofing the User agent string?
 ** TODO Automate Signin to Firefox Account
 ** TODO Add SSH Key in Gitlab
+- Just need to do this once with my 1Password SSH key now
 ** TODO Set up licensed applications
 - Fantastical
 - Alfred
+** DONE Move SSH Key into 1Password
+** TODO Ensure startup applications
+- Yippy
+- Alfred
+- Stats
+- Finickyjs
+- Amphetamine
+** TODO Set up dotdrop to read from 'magic' USB drive
+- Read 1Password setup details from a file
+- Variable in dotdrop to specify volume name/mount path
+
+* TODO Smarter URL Handling
+Set up Finicky.js config to rewrite URLs to open in a specific firefox container based on a whitelist
+
+* Hammerspoon Things
+** Org-Agenda TODOs on the Desktop
+** Org-Capture hotkeys?
+- Retro Note START/STOP/KEEP/SHOUTOUT
+- Launch "no frills" emacs instance
+  - Customized title
+  - Hide mode line
+
+** Open Clipboard in Container
+- Transform current clipboard contents into a container-specific URL
+
+** Toggle UI Configs
+- Show/Autohide menubar
+- Show/Autohide dock
+- Set dock position
+
+* Toolbelt
+CLI tool for tagging tools for certain tasks
+
+- e.g. httpie -> tags might be: http request web download json
+- Searchable with FZF
