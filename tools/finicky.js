@@ -17,6 +17,10 @@ module.exports = {
                 pathname: url.pathname.replace(/^\/s\//, "/j/"),
             }),
         },
+        {
+            match: /device.sso.us-east-1.amazonaws.com/,
+            url: ({ urlString }) => openInFirefoxContainer("Work", urlString)
+        },
 /*
         {
             match: /zoom.us\/my\//,
