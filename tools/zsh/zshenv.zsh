@@ -10,7 +10,9 @@ export CLICOLOR=1;
 export PSPG="--style=22";
 export MCFLY_KEY_SCHEME="vim";
 export MCFLY_FUZZY=2;
-export MCFLY_RESULTS=25;
+export MCFLY_RESULTS=50;
+export MCFLY_INTERFACE_VIEW="BOTTOM";
+export LSP_USE_PLISTS="true";
 
 path_additions=(
     $HOME/.bin
