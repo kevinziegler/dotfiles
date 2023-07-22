@@ -17,6 +17,7 @@ autoloads=(
     plugin-init
     fzf-repl
     exa-tree
+    ensure
 );
 
 source_dotfiles=(
@@ -53,9 +54,9 @@ fi
 for df in $source_dotfiles; do source "$DOTFILES/tools/zsh/$df.zsh"; done
 for sf in $source_optional; do source-optional "$sf"; done
 
-eval "$(direnv hook zsh)";
-eval "$(mcfly init zsh)";
-eval "$(op completion zsh)";
-eval "$(kubecm completion zsh)";
+ensure "direnv" "skipping initialization" && eval "$(direnv hook zsh)";
+ensure "mcfly" "skipping initialization" && eval "$(mcfly init zsh)";
+ensure "op" "skipping initialization" && eval "$(op completion zsh)";
+# ensure "kubecm" "skipping initialization" && eval "$(kubecm completion zsh)";
 
 compdef _op op;

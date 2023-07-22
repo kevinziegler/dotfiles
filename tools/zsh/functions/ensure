@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+function ensure() {
+    util="${1}";
+    consequence="${2:-"Consequences unknown!"}";
+
+    if which "${util}" > /dev/null; then
+        return 0;
+    fi
+
+    echo "WARNING: '${util}' not available: ${consequence}";
+    return 1;
+}
