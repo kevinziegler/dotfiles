@@ -17,6 +17,7 @@ export LSP_USE_PLISTS="true";
 path_additions=(
     $HOME/.bin
     $HOME/go/bin
+    $HOME/.cargo/bin
     $HOME/.emacs.d/bin
     $HOME/.dotfiles/bin
     $HOMEBREW_PREFIX/bin
