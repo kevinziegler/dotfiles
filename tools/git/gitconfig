@@ -3,6 +3,7 @@
 
 [core]
   excludesfile = ~/.dotfiles/tools/git/gitignore_global
+  attributesFile = ~/.dotfiles/tools/git/gitattributes
   editor = /usr/bin/vim
   pager = delta --dark 
 
