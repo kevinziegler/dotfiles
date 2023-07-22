@@ -5,53 +5,40 @@ config:
     - "uservariables.yaml:optional"
 
 profiles:
+  # Initial bootstrap of homebrew & homebrew-installed applications
   system:
     dotfiles:
       - brewfile
-      - tool_versions
-      - dotfiles_remote
 
-  applications:
-    dotfiles:
-      - onepassword
-      - finickyjs
-
-  identity:
+  # Dotfiles that are basic links/copy-paste jobs
+  common:
     dotfiles:
       - ssh_config
-      - gpg_identity
-
-  git:
-    dotfiles:
       - gitconfig
       - gitignore_global
       - gitconfig_local
       - gitattributes
-      - hub
-
-  zsh:
-    dotfiles:
-      - zshrc
-      - zshenv
-      - zsh_plugins
-
-  emacs:
-    dotfiles:
-      - doom_emacs
-      - doom_emacs_local
-
-  misc:
-    dotfiles:
       - myclirc
       - pgcli_config
       - psqlrc
       - mackup_cfg
+      - zshrc
+      - zshenv
 
-  test:
+  # Things with dependencies on homebrew-installed-items
+  post_homebrew:
     dotfiles:
+      - onepassword
       - finickyjs
-    dynvariables:
-      op_session: "echo FOOBAR"
+      - tool_versions
+      - zsh_plugins
+
+  # Things that need SSH keys in place
+  post_ssh_config:
+    dotfiles:
+      - dotfiles_remote
+      - doom_emacs
+      - doom_emacs_local
 
 dotfiles:
   brewfile:
@@ -101,19 +88,12 @@ dotfiles:
     src: tools/git/attributes
     dst: ~/.config/git/attributes
 
-  # TODO Test me!
-  gpg_identity:
-    src:
-    dst:
-    actions:
-      - import_gpg_key
-
-  hub:
-    src: tools/hub.tmpl.yaml
-    dst: ~/.config/hub
-    template: false
-    link: nolink
-    trans_read: op_inject
+  # hub:
+  #   src: tools/hub.tmpl.yaml
+  #   dst: ~/.config/hub
+  #   template: false
+  #   link: nolink
+  #   trans_read: op_inject
 
   mackup_cfg:
     src: system/mackup.cfg
@@ -167,20 +147,18 @@ dotfiles:
 uservariables:
   system_email: "System email (e.g. your work email)"
 
-# TODO Make this work with "bootstrap" profiles?
 dynvariables:
   op_session: "op signin --account {{@@ op_alias @@}} --raw"
 
 variables:
   scripts: "{{@@ _dotdrop_dotpath @@}}/scripts"
   op_alias: "personal"
-  op_setup_file: "/Volumes/BOOTSTRAP/onepassword-setup.txt"
-  op_gpg_item: "Personal GPG Identity"
+  op_setup_file: "/Volumes/BOOT/dotdrop-bootstrap.sh"
   tool_versions_src: "system/tool-versions"
 
 trans_read:
   asdf_config_latest: "<{0} xargs -L1 {{@@ scripts @@}}/asdf-entry-latest >> {1}"
-  op_inject: "op inject --session {{@@ op_session @@}} --in-file {0} --out-file {1}"
+  # op_inject: "op inject --session {{@@ op_session @@}} --in-file {0} --out-file {1}"
   antibody_bundle: "antibody bundle < {0} > {1}"
 
 actions:
