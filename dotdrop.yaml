@@ -10,7 +10,6 @@ profiles:
     dotfiles:
       - brewfile
 
-  # Dotfiles that are basic links/copy-paste jobs
   common:
     dotfiles:
       - ssh_config
@@ -21,17 +20,19 @@ profiles:
       - myclirc
       - pgcli_config
       - psqlrc
-      - mackup_cfg
       - zshrc
       - zshenv
-
-  # Things with dependencies on homebrew-installed-items
-  post_homebrew:
-    dotfiles:
-      - onepassword
-      - finickyjs
-      - tool_versions
       - zsh_plugins
+      - hammerspoon
+      - finickyjs
+      - onepassword
+
+  # ASDF and Emacs have long-running actions to set things up, so we'll break
+  # them out into standalone profiles.  This way if anything goes wrong it's
+  # easier to run them independently.
+  asdf:
+    dotfiles:
+      - tool_versions
 
   emacs:
     dotfiles:
