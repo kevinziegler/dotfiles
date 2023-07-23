@@ -1,20 +1,11 @@
 #!/usr/bin/env zsh
 
-if [ -z "$HOMEBREW_PREFIX" ]; then
-    if [ $(uname -m) = "x86_64" ]; then
-        export HOMEBREW_PREFIX="/usr/local";
-    else
-        export HOMEBREW_PREFIX="/opt/homebrew/";
-    fi
-fi
-
 autoloads=(
     vterm_printf
     vterm_prompt_end
     source-optional
     iterm-init
     compinit-refresh
-    plugin-init
     fzf-repl
     exa-tree
     ensure
@@ -48,8 +39,10 @@ autoload -Uz $autoloads;
 if [[ -o interactive ]]; then
     iterm-init;
     compinit-refresh;
-    plugin-init "$ZSH_PLUGINS_BUNDLE" "$ZSH_PLUGINS_SOURCE";
 fi
+
+source "$(brew --prefix antidote)/share/antidote/antidote.zsh"
+antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
 for df in $source_dotfiles; do source "$DOTFILES/tools/zsh/$df.zsh"; done
 for sf in $source_optional; do source-optional "$sf"; done
