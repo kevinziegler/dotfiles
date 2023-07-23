@@ -1,5 +1,0 @@
-#! /usr/bin/env zsh
-
-op_gpg_key_item="${1}";
-op_session="${2}";
-op document get "${op_gpg_key_item}" --session "${op_session}" | gpg --import -;
