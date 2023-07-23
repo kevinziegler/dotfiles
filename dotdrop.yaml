@@ -84,8 +84,8 @@ dotfiles:
     src: tools/git/gitignore_global
     dst: ~/.gitignore_global
 
-  git_attributes:
-    src: tools/git/attributes
+  gitattributes:
+    src: tools/git/gitattributes
     dst: ~/.config/git/attributes
 
   # hub:
