@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+local plugin_list_file="${1}";
+asdf plugin update --all;
+
+# TODO Find a way to exit gracefully when plugin the plugin is already added
+cat "${plugin_list_file}" | xargs -L1 asdf plugin add
+
+exit 0

@@ -120,12 +120,14 @@ dotfiles:
     dst: ~/.ssh/config
 
   tool_versions:
-    src: "{{@@ tool_versions_src @@}}"
+    src: system/tool-versions
     dst: ~/.tool-versions
     link: nolink
     trans_read: asdf_config_latest
     actions:
+      - asdf_init_plugins
       - asdf_install
+      - asdf_install_dotdrop_dependencies
 
   zshenv:
     src: tools/zsh/zshenv.zsh
@@ -153,19 +155,18 @@ variables:
   scripts: "{{@@ _dotdrop_dotpath @@}}/scripts"
   op_alias: "personal"
   op_setup_file: "/Volumes/BOOT/dotdrop-bootstrap.sh"
-  tool_versions_src: "system/tool-versions"
   provision: "{{@@ _dotdrop_dotpath @@}}/.."
   doom_emacs_repo: "https://github.com/doomemacs/doomemacs.git"
   doom_emacs_dir: "~/.emacs.d"
 
 trans_read:
-  asdf_config_latest: "<{0} xargs -L1 {{@@ scripts @@}}/asdf-entry-latest >> {1}"
   # op_inject: "op inject --session {{@@ op_session @@}} --in-file {0} --out-file {1}"
+  asdf_config_latest: "cat {0} | xargs -L1 {{@@ scripts @@}}/asdf-entry-latest >> {1}"
   antibody_bundle: "antibody bundle < {0} > {1}"
 
 actions:
   pre:
-    asdf_init_plugins: "asdf plugin update --all && <{{@@ dotdrop_dotpath @@}}/{{@@ tool_versions_src @@}} xargs -L1 asdf plugin add"
+    asdf_init_plugins: "{{@@ scripts @@}}/asdf-init-plugins {{@@ _dotdrop_dotpath @@}}/system/tool-versions"
     install_homebrew: "{{@@ scripts @@}}/install-homebrew"
   post:
     doom_emacs_clone: "{{@@ scripts @@}}/git-setup-from-http {{@@ doom_emacs_repo @@}} {{@@ doom_emacs_dir @@}}"
@@ -178,3 +179,4 @@ actions:
     init_1password_app: "{{@@ scripts @@}}/init-1password-app {{@@ op_setup_file @@}}"
     init_1password_cli: "{{@@ scripts @@}}/init-1password-cli {{@@ op_alias @@}} {{@@ op_setup_file @@}}"
     import_gpg_key: "{{@@ scripts @@}}/import-gpg-key"
+    asdf_install_dotdrop_deps: "pip install -r {{@@ _dotdrop_dotpath @@}}/dotdrop/requirements.txt"
