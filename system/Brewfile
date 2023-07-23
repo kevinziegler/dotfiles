@@ -118,7 +118,7 @@ brew "xsv"
 brew "yq"
 brew "z"
 brew "zsh"
-brew "d12frosted/emacs-plus/emacs-plus@28", args: ["with-modern-sexy-v2-icon", "with-native-comp", "with-xwidgets"]
+brew "d12frosted/emacs-plus/emacs-plus@29", args: ["with-modern-sexy-v2-icon", "with-native-comp", "with-xwidgets", "with-no-frame-refocus", "with-poll", "with-mailutils", "with-dbus"]
 brew "shellspec/shellspec/shellspec"
 cask "1password"
 cask "1password-cli"
