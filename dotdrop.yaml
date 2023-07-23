@@ -142,6 +142,10 @@ dotfiles:
     src: tools/zsh/plugins.txt
     dst: ~/.zsh_plugins.txt
 
+  hammerspoon:
+    src: "{{@@ provision @@}}/hammerspoon"
+    dst: ~/.hammerspoon
+
 uservariables:
   system_email: "System email (e.g. your work email)"
 
@@ -153,6 +157,7 @@ variables:
   op_alias: "personal"
   op_setup_file: "/Volumes/BOOT/dotdrop-bootstrap.sh"
   tool_versions_src: "system/tool-versions"
+  provision: "{{@@ _dotdrop_dotpath @@}}/.."
 
 trans_read:
   asdf_config_latest: "<{0} xargs -L1 {{@@ scripts @@}}/asdf-entry-latest >> {1}"
