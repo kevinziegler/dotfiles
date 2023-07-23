@@ -170,7 +170,5 @@ actions:
     brew_bundle: "brew bundle --global"
     mackup_restore: "mackup restore"
     set_default_browser: "defaultbrowser finicky"
-    dotfiles_set_ssh_url: "{{@@ scripts @@}}/set-git-ssh-remote {{@@ _dotdrop_dotpath @@}} origin"
-    import_gpg_key: "{{@@ scripts @@}}/import-gpg-key"
     init_1password_cli: "{{@@ scripts @@}}/init-1password-cli {{@@ op_setup_file @@}}"
     asdf_install_dotdrop_deps: "pip install -r {{@@ _dotdrop_dotpath @@}}/dotdrop/requirements.txt"
