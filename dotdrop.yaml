@@ -33,12 +33,14 @@ profiles:
       - tool_versions
       - zsh_plugins
 
-  # Things that need SSH keys in place
-  post_ssh_config:
+  emacs:
     dotfiles:
-      - dotfiles_remote
       - doom_emacs
       - doom_emacs_local
+
+  needs_debug:
+    dotfiles:
+      - mackup_cfg
 
 dotfiles:
   brewfile:
@@ -49,21 +51,16 @@ dotfiles:
       - brew_bundle
 
   doom_emacs:
-    src:
-    dst:
+    src: "{{@@ provision @@}}/doom.d"
+    dst: ~/.doom.d
     actions:
-      - setup_emacs
+      - doom_emacs_clone
+      - doom_emacs_install
 
   doom_emacs_local:
     src: tools/doom-local.tmpl.el
     dst: ~/.doom.d/conf.d/local.el
     link: nolink
-
-  dotfiles_remote:
-    src:
-    dst:
-    actions:
-      - dotfiles_set_ssh_url
 
   finickyjs:
     src: tools/finicky.js
@@ -158,6 +155,8 @@ variables:
   op_setup_file: "/Volumes/BOOT/dotdrop-bootstrap.sh"
   tool_versions_src: "system/tool-versions"
   provision: "{{@@ _dotdrop_dotpath @@}}/.."
+  doom_emacs_repo: "https://github.com/doomemacs/doomemacs.git"
+  doom_emacs_dir: "~/.emacs.d"
 
 trans_read:
   asdf_config_latest: "<{0} xargs -L1 {{@@ scripts @@}}/asdf-entry-latest >> {1}"
@@ -169,10 +168,11 @@ actions:
     asdf_init_plugins: "asdf plugin update --all && <{{@@ dotdrop_dotpath @@}}/{{@@ tool_versions_src @@}} xargs -L1 asdf plugin add"
     install_homebrew: "{{@@ scripts @@}}/install-homebrew"
   post:
+    doom_emacs_clone: "{{@@ scripts @@}}/git-setup-from-http {{@@ doom_emacs_repo @@}} {{@@ doom_emacs_dir @@}}"
+    doom_emacs_install: "{{@@ doom_emacs @@}}/bin/doom install --env --no-config --fonts"
     asdf_install: "asdf install"
     brew_bundle: "brew bundle --global"
     mackup_restore: "mackup restore"
-    setup_emacs: "{{@@ scripts @@}}/setup-emacs"
     set_default_browser: "defaultbrowser finicky"
     dotfiles_set_ssh_url: "{{@@ scripts @@}}/set-git-ssh-remote {{@@ _dotdrop_dotpath @@}} origin"
     init_1password_app: "{{@@ scripts @@}}/init-1password-app {{@@ op_setup_file @@}}"
