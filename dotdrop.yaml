@@ -140,9 +140,7 @@ dotfiles:
 
   zsh_plugins:
     src: tools/zsh/plugins.txt
-    dst: ~/.plugins.zsh
-    link: nolink
-    trans_read: antibody_bundle
+    dst: ~/.zsh_plugins.txt
 
 uservariables:
   system_email: "System email (e.g. your work email)"
