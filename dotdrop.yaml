@@ -1,5 +1,5 @@
 config:
-  dotpath: ~/.dotfiles
+  dotpath: ~/Documents/provisioning/dotfiles
   link_dotfile_default: relative
   import_variables:
     - "uservariables.yaml:optional"
