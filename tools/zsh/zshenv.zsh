@@ -1,5 +1,5 @@
 
-export DOTFILES="$HOME/Documents/provisioning/dotfiles";
+export DOTFILES="$HOME/.dotfiles";
 export ZSH_PLUGINS_SOURCE=$DOTFILES/tools/zsh/plugins.txt;
 export ZSH_PLUGINS_BUNDLE=$HOME/.plugins.zsh;
 export TERM="xterm-256color";
