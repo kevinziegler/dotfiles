@@ -48,7 +48,7 @@ for df in $source_dotfiles; do source "$DOTFILES/tools/zsh/$df.zsh"; done
 for sf in $source_optional; do source-optional "$sf"; done
 
 ensure "direnv" "skipping initialization" && eval "$(direnv hook zsh)";
-ensure "mcfly" "skipping initialization" && eval "$(mcfly init zsh)";
+ensure "atuin" "skipping initialization" && eval "$(atuin init zsh)";
 ensure "op" "skipping initialization" && eval "$(op completion zsh)";
 # ensure "kubecm" "skipping initialization" && eval "$(kubecm completion zsh)";
 

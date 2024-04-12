@@ -9,11 +9,8 @@ export EDITOR="ec";
 export ALTERNATE_EDITOR="vim";
 export CLICOLOR=1;
 export PSPG="--style=22";
-export MCFLY_KEY_SCHEME="vim";
-export MCFLY_FUZZY=2;
-export MCFLY_RESULTS=50;
-export MCFLY_INTERFACE_VIEW="BOTTOM";
 export LSP_USE_PLISTS="true";
+export MANPATH="$(manpath)";
 
 if [ -z "$HOMEBREW_PREFIX" ]; then
     if [ $(uname -m) = "x86_64" ]; then
